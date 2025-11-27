@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mandarin Lab – Mini Chinese Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Calendly embed -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 0% 0%, #334155 0, #020617 40%, #020617 100%),
+                     radial-gradient(circle at 100% 100%, #0f172a 0, #020617 60%, #020617 100%);
+      --glass: rgba(15, 23, 42, 0.78);
+      --glass-soft: rgba(15, 23, 42, 0.6);
+      --glass-strong: rgba(15, 23, 42, 0.92);
+      --border-soft: rgba(148, 163, 184, 0.55);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.24);
+      --accent-strong: rgba(34, 197, 94, 0.7);
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --text-dim: #6b7280;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.9);
+      --shadow-card: 0 18px 40px rgba(15, 23, 42, 0.75);
+      --radius-xl: 26px;
+      --radius-lg: 22px;
+      --blur-soft: 22px;
+      --blur-strong: 28px;
+      --transition-fast: 180ms ease-out;
+      --transition-med: 220ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
+      color: var(--text-main);
+      background: #020617;
+      background-image:
+        radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.35), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(244, 114, 182, 0.28), transparent 60%),
+        radial-gradient(circle at 0% 100%, rgba(52, 211, 153, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(251, 191, 36, 0.16), transparent 55%);
+      background-color: #020617;
+      background-blend-mode: screen;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      backdrop-filter: blur(var(--blur-soft));
+      -webkit-backdrop-filter: blur(var(--blur-soft));
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      padding: 18px 32px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.76), transparent);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: #f9fafb;
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #bbf7d0, #22c55e);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.95);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      border-radius: 999px;
+      padding: 7px 15px;
+      font-size: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-main);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.24), rgba(15, 23, 42, 0.9));
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .nav-btn-primary {
+      border-color: transparent;
+      background: radial-gradient(circle at 0 0, rgba(52, 211, 153, 0.55), rgba(22, 163, 74, 0.95));
+      box-shadow: 0 12px 32px rgba(34, 197, 94, 0.85);
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.85);
+      border-color: rgba(248, 250, 252, 0.32);
+    }
+
+    .nav-btn-primary:hover {
+      transform: translateY(-1.5px);
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.98);
+    }
+
+    .nav-btn span.icon {
+      font-size: 14px;
+    }
+
+    .content {
+      padding: 32px;
+      max-width: 1120px;
+      width: 100%;
+      margin: 0 auto 40px;
+    }
+
+    .section-heading {
+      margin-bottom: 18px;
+    }
+
+    .section-heading h1 {
+      font-size: clamp(32px, 4vw, 40px);
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      color: #f9fafb;
+      text-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .section-heading p {
+      margin-top: 10px;
+      max-width: 620px;
+      color: var(--text-soft);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .booking-shell {
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.8);
+      width: fit-content;
+    }
+
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #a7f3d0, #22c55e);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .booking-card {
+      border-radius: var(--radius-xl);
+      padding: 26px 26px 26px 26px;
+      background: linear-gradient(135deg,
+                rgba(15, 23, 42, 0.92),
+                rgba(15, 23, 42, 0.78));
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(var(--blur-soft)) saturate(1.7);
+      -webkit-backdrop-filter: blur(var(--blur-soft)) saturate(1.7);
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.35), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(244, 114, 182, 0.25), transparent 60%);
+      opacity: 0.65;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .booking-inner {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .booking-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .booking-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 12px;
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+    }
+
+    .booking-pill-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #bfdbfe, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #eff6ff;
+      font-size: 12px;
+      box-shadow: 0 0 18px rgba(59, 130, 246, 0.8);
+    }
+
+    .booking-title {
+      font-size: 22px;
+      font-weight: 680;
+      letter-spacing: 0.015em;
+      color: #f9fafb;
+    }
+
+    .booking-body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-soft);
+      max-width: 520px;
+    }
+
+    .booking-body span {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .booking-actions {
+      position: relative;
+      z-index: 1;
+      min-width: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-size: 15px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: #022c22;
+      background: radial-gradient(circle at 0 0, rgba(74, 222, 128, 0.94), #16a34a);
+      box-shadow:
+        0 18px 40px rgba(22, 163, 74, 0.9),
+        0 0 0 1px rgba(187, 247, 208, 0.6);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med), filter var(--transition-med);
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background:
+        radial-gradient(circle at 0 0, rgba(250, 250, 250, 0.6), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(96, 165, 250, 0.5), transparent 55%);
+      opacity: 0;
+      transform: translate3d(-15%, -15%, 0);
+      transition: opacity 260ms ease-out, transform 260ms ease-out;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1.5px) scale(1.01);
+      box-shadow:
+        0 24px 55px rgba(22, 163, 74, 0.98),
+        0 0 0 1px rgba(224, 242, 254, 0.8);
+      filter: saturate(1.1);
+    }
+
+    .btn-primary:hover::before {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .btn-primary span.icon {
+      font-size: 16px;
+    }
+
+    .booking-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      max-width: 260px;
+      text-align: right;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 6px 0 14px;
+      gap: 12px;
+    }
+
+    .section-title-row h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .section-title-row span {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 15px 15px 16px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(var(--blur-soft)) saturate(1.5);
+      -webkit-backdrop-filter: blur(var(--blur-soft)) saturate(1.5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(96, 165, 250, 0.45), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(244, 114, 182, 0.35), transparent 60%);
+      opacity: 0.38;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .card-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: #f9fafb;
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.9));
+    }
+
+    .badge-recommended {
+      border-color: rgba(52, 211, 153, 0.9);
+      background: radial-gradient(circle at 0 0, rgba(52, 211, 153, 0.4), rgba(22, 163, 74, 0.95));
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .badge-new {
+      border-color: rgba(59, 130, 246, 0.75);
+      background: radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.4), rgba(30, 64, 175, 0.95));
+      color: #eff6ff;
+    }
+
+    .badge-soon {
+      border-color: rgba(148, 163, 184, 0.9);
+      background: radial-gradient(circle at 0 0, rgba(31, 41, 55, 0.9), rgba(15, 23, 42, 0.95));
+      color: #e5e7eb;
+    }
+
+    .card-thumb {
+      position: relative;
+      z-index: 1;
+      border-radius: 18px;
+      overflow: hidden;
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 1));
+      border: 1px solid rgba(30, 64, 175, 0.5);
+      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      height: 190px;            /* 固定高度，方便缩略图完整显示 */
+    }
+
+    .card-thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;      /* ⭐ 尽量完整显示整个缩略图 */
+      display: block;
+    }
+
+    .card-body {
+      position: relative;
+      z-index: 1;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-soft);
+      min-height: 50px;
+    }
+
+    .card-actions {
+      position: relative;
+      z-index: 1;
+      margin-top: 6px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.25), rgba(15, 23, 42, 0.95));
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: rgba(248, 250, 252, 0.4);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.35), rgba(15, 23, 42, 0.98));
+    }
+
+    .btn-soon {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at 0 0, rgba(31, 41, 55, 0.9), rgba(15, 23, 42, 0.98));
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: default;
+    }
+
+    .section-contact {
+      margin-top: 16px;
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 22px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(var(--blur-soft)) saturate(1.4);
+      -webkit-backdrop-filter: blur(var(--blur-soft)) saturate(1.4);
+    }
+
+    .section-contact h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #e5e7eb;
+    }
+
+    .section-contact ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .section-contact li + li {
+      margin-top: 4px;
+    }
+
+    .section-contact span.label {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    @media (max-width: 960px) {
+      .content {
+        padding: 24px 18px 32px;
+      }
+
+      .booking-card {
+        flex-direction: column;
+        padding: 22px 18px 18px;
+        align-items: flex-start;
+      }
+
+      .booking-actions {
+        align-items: flex-start;
+        min-width: 0;
+        width: 100%;
+      }
+
+      .booking-note {
+        text-align: left;
+      }
+
+      .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        padding: 14px 16px 10px;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .content {
+        padding: 20px 16px 28px;
+      }
+
+      .section-heading h1 {
+        font-size: 26px;
+      }
+
+      .section-heading p {
+        font-size: 14px;
+      }
+
+      .booking-card {
+        border-radius: 22px;
+      }
+
+      .games-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .card-thumb {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <!-- 顶部导航 -->
+    <header class="nav">
+      <div class="nav-left">
+        <span class="nav-dot"></span>
+        <span>Mandarin Lab</span>
+      </div>
+      <div class="nav-links">
+        <a href="#booking" class="nav-btn nav-btn-primary">
+          <span class="icon">📅</span>
+          <span>Book a Lesson</span>
+        </a>
+        <a href="#games" class="nav-btn">Games</a>
+        <a href="#contact" class="nav-btn">Contact</a>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- 订课标题 + 卡片 -->
+      <section id="booking" class="booking-shell">
+        <div class="section-heading">
+          <h1>Level up faster—together.</h1>
+          <p>
+            1:1 speaking practice, kids’ Chinese, and solid foundations.
+            Start with a friendly trial lesson.
+          </p>
+        </div>
+
+        <div class="booking-card">
+          <div class="booking-inner">
+            <div class="booking-tag-row">
+              <div class="booking-pill">
+                <div class="booking-pill-icon">🎓</div>
+                <span>1:1 Chinese Lessons</span>
+              </div>
+            </div>
+            <div class="booking-title">
+              Book a live lesson with Patrick
+            </div>
+            <div class="booking-body">
+              Book a 1:1 online Chinese lesson:
+              <span>perfect for absolute beginners, speaking improvement, or customized classes for kids.</span>
+              Choose a time that works for you — Calendly will automatically add it to your calendar and send you the meeting link.
+            </div>
+          </div>
+
+          <div class="booking-actions">
+            <button
+              class="btn-primary"
+              onclick="Calendly.initPopupWidget({url: 'https://calendly.com/patrickct'}); return false;">
+              <span class="icon">📅</span>
+              <span>Book Now</span>
+            </button>
+            <div class="booking-note">
+              Calendly handles the time zones, calendar invites, and Zoom link for you.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mini games -->
+      <section id="games">
+        <div class="section-title-row">
+          <h2>Mini Chinese Games</h2>
+          <span>Grow your vocab, pinyin skills, and reaction time—while having fun.</span>
+        </div>
+
+        <div class="games-grid">
+          <!-- Shooting Characters -->
+          <article class="card">
+            <div class="card-header">
+              <h3 class="card-title">Shooting Characters (HSK)</h3>
+              <span class="badge badge-recommended">Recommended</span>
+            </div>
+            <div class="card-thumb">
+              <img src="thumbnails/shooting.png" alt="Shooting Characters thumbnail" />
+            </div>
+            <div class="card-body">
+              Listen to the audio, shoot the correct characters, and earn your score.
+            </div>
+            <div class="card-actions">
+              <a class="btn-secondary" href="shooting_characters_web.tonal_game.10.28.html" target="_blank" rel="noopener">
+                <span>Open in New Tab</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Chinese Solitaire -->
+          <article class="card">
+            <div class="card-header">
+              <h3 class="card-title">Chinese Solitaire</h3>
+              <span class="badge badge-new">New</span>
+            </div>
+            <div class="card-thumb">
+              <img src="thumbnails/solitaire.png" alt="Chinese Solitaire thumbnail" />
+            </div>
+            <div class="card-body">
+              A classic solitaire game with your custom Chinese deck.
+              Best experienced in full screen.
+            </div>
+            <div class="card-actions">
+              <a class="btn-secondary" href="solitaire/" target="_blank" rel="noopener">
+                <span>Open in New Tab</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Pinyin Shooter (coming soon) -->
+          <article class="card">
+            <div class="card-header">
+              <h3 class="card-title">Pinyin Shooter</h3>
+              <span class="badge badge-soon">Coming Soon</span>
+            </div>
+            <div class="card-thumb">
+              <img src="thumbnails/pinyin-shooter-coming-soon.png" alt="Pinyin Shooter coming soon thumbnail" />
+            </div>
+            <div class="card-body">
+              Listen and shoot the matching syllable.
+            </div>
+            <div class="card-actions">
+              <div class="btn-soon">
+                <span>Coming Soon</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section-contact">
+        <h2>Contact</h2>
+        <ul>
+          <li><span class="label">Email:</span> your@email.com</li>
+          <li><span class="label">YouTube:</span> @yourchannel</li>
+          <li><span class="label">WeChat:</span> Add me and say “Chinese learner”.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

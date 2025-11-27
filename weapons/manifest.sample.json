@@ -1,0 +1,28 @@
+[
+  {
+    "id": "cat",
+    "label": "猫咪发射器",
+    "mode": "hitscan",
+    "power": 1,
+    "recoil": 0.3,
+    "preview": "weapons/cat/weapon.png",
+    "previewImageScale": 0.78,
+    "splat": "weapons/cat/impact.png",
+    "splatImageScale": 1.18,
+    "firingSound": "weapons/cat/cat_firing.mp3",
+    "impactSound": "weapons/cat/cat_splat.mp3"
+  },
+  {
+    "id": "tomato",
+    "label": "番茄",
+    "mode": "lob",
+    "power": 3,
+    "preview": "weapons/tomato/weapon.png",
+    "previewImageScale": 0.9,
+    "projectile": "weapons/tomato/projectile.png",
+    "projectileImageScale": 1.1,
+    "splat": "weapons/tomato/splat.png",
+    "splatImageScale": 1.0,
+    "impactSound": "weapons/tomato/tomato_splat.mp3"
+  }
+]

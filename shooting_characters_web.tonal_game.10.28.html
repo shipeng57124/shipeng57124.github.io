@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>汉字听音射击（网页版：支持自定义词库）</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root{color-scheme:dark;--body-bg:#0b1220;--text-color:#fff;--canvas-bg:#071129;--canvas-border:#0c61a1;--ui-bg:rgba(0,0,0,.28);--ui-shadow:0 8px 30px rgba(0,0,0,.6);--button-bg:#0c6;--button-color:#002;--button-hover-filter:brightness(1.08);--button-focus-ring:0 0 0 2px rgba(12,102,0,.4);--badge-bg:rgba(255,255,255,.07);--tone-button-bg:#133047;--tone-button-border:rgba(255,255,255,.12);--tone-button-color:#fff;--tone-button-hover-bg:#1c4670;--tone-button-active-bg:#1c5d99;--message-bg:rgba(0,0,0,.45);--overlay-bg:rgba(0,0,0,.55);--panel-bg:#0f1a33;--panel-border:#275;--panel-text:#cfe;--panel-link:#9fe;--menu-title:#fff;--badge-text-weight:600;}
+  body.theme-light{color-scheme:light;--body-bg:#f6f7fb;--text-color:#111;--canvas-bg:#ffffff;--canvas-border:#8ab4f8;--ui-bg:rgba(0,0,0,.06);--ui-shadow:0 6px 24px rgba(15,35,75,.16);--button-bg:#1e80ff;--button-color:#fff;--button-hover-filter:brightness(.97);--button-focus-ring:0 0 0 2px rgba(30,128,255,.28);--badge-bg:rgba(0,0,0,.08);--tone-button-bg:#e8f0ff;--tone-button-border:rgba(30,80,160,.18);--tone-button-color:#0d1f33;--tone-button-hover-bg:#d6e4ff;--tone-button-active-bg:#c2d6ff;--message-bg:rgba(0,0,0,.65);--overlay-bg:rgba(255,255,255,.7);--panel-bg:#ffffff;--panel-border:#8ab4f8;--panel-text:#123;--panel-link:#1160c5;--menu-title:#0a1a33;--badge-text-weight:600;}
+  html,body{height:100%;margin:0;background:var(--body-bg);color:var(--text-color);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;display:flex;flex-direction:column;align-items:center;padding:18px 14px;box-sizing:border-box;transition:background .3s,color .3s;}
+  #game{display:block;margin:12px auto 0;background:var(--canvas-bg);border:6px solid var(--canvas-border);box-shadow:var(--ui-shadow);cursor:crosshair;max-width:100%;height:auto;transition:background .3s,border-color .3s,box-shadow .3s;}
+  .ui{width:100%;max-width:1000px;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;align-items:center;background:var(--ui-bg);padding:10px 16px;border-radius:12px;box-sizing:border-box;transition:background .3s,box-shadow .3s;}
+  button{padding:6px 12px;border-radius:6px;border:none;background:var(--button-bg);color:var(--button-color);cursor:pointer;font-size:15px;line-height:1.3;transition:filter .18s,background .18s,color .18s;}
+  button:hover{filter:var(--button-hover-filter);}
+  .ui button,.ui select{padding:5px 10px;font-size:14px;background:var(--button-bg);color:var(--button-color);border:none;border-radius:6px;cursor:pointer;}
+  .ui button:hover,.ui select:focus{outline:none;box-shadow:var(--button-focus-ring);}
+  .badge{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;font-size:14px;background:var(--badge-bg);border-radius:6px;transition:background .3s,color .3s;}
+  .badge span:last-child{font-weight:var(--badge-text-weight);}
+  label.switch{display:inline-flex;align-items:center;gap:6px;user-select:none;font-size:14px;}
+  .switch input{width:18px;height:18px;}
+  .setting{display:flex;align-items:center;gap:6px;font-size:14px;}
+  .game-wrapper{position:relative;width:100%;max-width:1000px;}
+  .tone-controls{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;max-width:1000px;}
+  .tone-controls[hidden]{display:none !important;}
+  .tone-button{background:var(--tone-button-bg);color:var(--tone-button-color);border:1px solid var(--tone-button-border);border-radius:999px;padding:10px 14px;min-width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:18px;cursor:pointer;transition:transform .12s ease,background .18s ease,box-shadow .18s ease,color .18s ease;}
+  .tone-button .tone-symbol{font-size:24px;line-height:1;min-height:1em;letter-spacing:1px;}
+  .tone-button .tone-label{font-size:12px;opacity:.75;line-height:1;}
+  .tone-button:hover{background:var(--tone-button-hover-bg);box-shadow:0 6px 16px rgba(12,34,64,.35);}
+  .tone-button:active,.tone-button.active{transform:scale(.95);background:var(--tone-button-active-bg);box-shadow:0 4px 12px rgba(12,34,64,.3);}
+  .tone-button.neutral .tone-symbol{min-width:1.5em;}
+  #message{position:absolute;left:50%;transform:translateX(-50%);top:12px;z-index:30;
+           font-size:18px;padding:6px 12px;background:var(--message-bg);border-radius:8px;color:#fff;
+           opacity:0;transition:opacity .18s;}
+  #importPanel[hidden]{display:none !important;}
+  #importPanel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+               background:var(--overlay-bg);z-index:50}
+  #importBox{background:var(--panel-bg);border:1px solid var(--panel-border);padding:20px;border-radius:12px;width:min(90%,560px);color:var(--panel-text)}
+  #importBox h2{margin:0 0 10px;font-size:20px;color:inherit}
+  #importBox p{margin:6px 0;line-height:1.5;color:inherit}
+  #importBox input[type=file]{margin:8px 0}
+  #startMenu{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:60;background:var(--overlay-bg)}
+  #menuBox{background:var(--panel-bg);border:1px solid var(--panel-border);padding:24px;border-radius:12px;text-align:center;width:300px;color:var(--panel-text);}
+  #menuBox h2{margin:0 0 12px;color:var(--menu-title);}
+  #menuBox button{margin-top:8px;width:200px;font-size:16px;}
+  .cta-inline{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;width:100%;max-width:1000px;margin-bottom:10px;}
+  .cta-inline .lang-toggle{justify-self:start;}
+  .cta-inline .cta-button{justify-self:center;}
+  .topbar-spacer{height:1px;}
+  .cta-button{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;
+    background:linear-gradient(135deg,#ff6f61,#ffd166);color:#1b1033;font-weight:800;box-shadow:0 0 18px rgba(255,111,97,.6);
+    text-decoration:none;letter-spacing:0.2px;text-transform:uppercase;animation:pulseGlow 1.6s ease-in-out infinite;}
+  .cta-button:hover{filter:brightness(1.05);}
+  .lang-toggle{display:flex;gap:6px;}
+  .lang-toggle button{padding:4px 8px;font-size:12px;border-radius:999px;background:var(--badge-bg);color:var(--text-color);
+    border:1px solid rgba(255,255,255,.18);box-shadow:none;}
+  .lang-toggle button.active{background:#4ef0a5;color:#002;font-weight:700;}
+  @keyframes pulseGlow{0%{box-shadow:0 0 12px rgba(255,111,97,.55);}50%{box-shadow:0 0 24px rgba(255,209,102,.85);}100%{box-shadow:0 0 12px rgba(255,111,97,.55);}}
+  #lives{color:#ff4d6d;font-weight:700;}
+</style>
+</head>
+<body class="theme-dark">
+  <div class="cta-inline">
+    <div class="lang-toggle">
+      <button type="button" data-lang="zh" class="active">中文</button>
+      <button type="button" data-lang="en">English</button>
+    </div>
+    <a id="bookBtn" class="cta-button" href="https://calendly.com/patrickct" target="_blank" rel="noopener">预约 Patrick 课程</a>
+    <div class="topbar-spacer"></div>
+  </div>
+
+  <div class="ui">
+    <button id="startBtn" title="开始新的一局" data-i18n="restart">Restart</button>
+    <button id="pauseBtn" title="暂停或继续当前游戏" data-i18n="pause">Pause</button>
+    <button id="menuBtn" title="返回模式选择并重新开始" data-i18n="menu">模式菜单</button>
+    <span class="badge"><span data-i18n="scoreLabel">Score:</span>&nbsp;<span id="score">0</span></span>
+    <span class="badge"><span data-i18n="comboLabel">Combo:</span>&nbsp;<span id="combo">0</span></span>
+    <span class="badge"><span data-i18n="roundLabel">Round:</span>&nbsp;<span id="round">1</span></span>
+    <span class="badge"><span data-i18n="timerLabel">Timer:</span>&nbsp;<span id="timer">00:00</span></span>
+    <span class="badge"><span data-i18n="livesLabel">Lives:</span>&nbsp;<span id="lives">♥♥♥♥♥</span></span>
+    <button id="replayBtn" title="重播当前题目 (R)" data-i18n="replay">重播 (R)</button>
+    <label class="switch" data-i18n-wrapper="pinyin"><input type="checkbox" id="pinyinToggle" /> <span data-i18n="pinyin">显示拼音</span></label>
+    <label class="setting" data-i18n-wrapper="duration"><span data-i18n="duration">时长</span>
+      <select id="timerSelect">
+        <option value="180" selected data-i18n="duration3">3 分钟</option>
+        <option value="300" data-i18n="duration5">5 分钟</option>
+        <option value="480" data-i18n="duration8">8 分钟</option>
+      </select>
+    </label>
+    <label class="setting" data-i18n-wrapper="speed"><span data-i18n="speed">速度</span>
+      <select id="speedSelect">
+        <option value="30" data-i18n="speed1">较慢</option>
+        <option value="36" data-i18n="speed2">慢速</option>
+        <option value="48" selected data-i18n="speed3">标准</option>
+        <option value="60" data-i18n="speed4">快速</option>
+        <option value="72" data-i18n="speed5">很快</option>
+        <option value="90" data-i18n="speed6">极速</option>
+      </select>
+    </label>
+    <label class="setting" data-i18n-wrapper="mode"><span data-i18n="mode">模式</span>
+      <select id="modeSelect">
+        <option value="shooting" selected data-i18n="modeShooting">射击</option>
+        <option value="tone" data-i18n="modeTone">声调</option>
+      </select>
+    </label>
+    <label class="setting" data-i18n-wrapper="theme"><span data-i18n="theme">主题</span>
+      <select id="themeSelect">
+        <option value="dark" selected data-i18n="themeDark">深色</option>
+        <option value="light" data-i18n="themeLight">浅色</option>
+      </select>
+    </label>
+    <label class="setting" id="weaponSetting" data-i18n-wrapper="weapon"><span data-i18n="weapon">武器</span>
+      <select id="weaponSelect"></select>
+    </label>
+    <div class="cta-inline">
+      <div class="lang-toggle">
+        <button type="button" data-lang="zh" class="active">中文</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
+      <a id="bookBtn" class="cta-button" href="https://calendly.com/patrickct" target="_blank" rel="noopener">预约 Patrick 课程</a>
+    </div>
+  </div>
+
+  <div class="game-wrapper">
+    <canvas id="game" width="1000" height="600"></canvas>
+    <div id="message"></div>
+  </div>
+
+  <div id="toneControls" class="tone-controls" hidden></div>
+
+  <!-- 启动菜单 -->
+  <div id="startMenu">
+    <div id="menuBox">
+      <h2 id="menuTitle">🎮 选择模式</h2>
+      <button id="shootingStartBtn">射击模式</button><br>
+      <button id="toneStartBtn">声调模式</button><br>
+      <button id="customVocabBtn" style="background:#07c;">Upload Vocabulary</button>
+    </div>
+  </div>
+
+  <!-- 词库上传面板 -->
+  <div id="importPanel" hidden>
+    <div id="importBox">
+      <h2>上传自定义词库</h2>
+      <p>上传你的 JSON 词库文件（例如 <code>words.json</code>）：</p>
+      <input id="fileInput" type="file" accept=".json" />
+      <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+        <button id="saveCacheBtn">保存到浏览器缓存</button>
+        <button id="useOnceBtn">仅本次使用</button>
+        <button id="closeBoxBtn" style="background:#333;color:#fff">取消</button>
+      </div>
+      <p style="margin-top:10px;color:var(--panel-link)">
+        音频文件放在 <code>audio/</code> 文件夹下与 JSON 同名的子目录中，例如词库
+        <code>words.json</code> 的语音放在 <code>audio/words/ni3.mp3</code>。旧版扁平结构仍可兼容。
+        命中/打偏/打错音效放在 <code>sfx/</code> 文件夹中（可选）。
+      </p>
+      <details style="margin-top:10px;color:var(--panel-link)">
+        <summary>🎯 自定义武器图片指南</summary>
+        <p style="margin-top:6px">1. 在游戏同级目录下创建 <code>weapons/</code> 文件夹，并为每种武器新建子文件夹（如 <code>weapons/paint/</code>）。</p>
+        <p>2. 推荐使用透明背景的 PNG 或 WebP 图片，文件名随意，只需在清单中引用即可。</p>
+        <p>3. 在 <code>weapons/manifest.json</code> 中列出武器配置，<code>mode</code> 支持 <code>hitscan</code>（直射）或 <code>lob</code>（抛物线），例如：</p>
+        <pre style="background:#030b1d;padding:10px;border-radius:8px;color:#cfe;white-space:pre-wrap">[
+  {
+    "id": "cat",
+    "label": "猫咪发射器",
+    "mode": "hitscan",
+    "power": 1,
+    "recoil": 0.28,
+    "preview": "weapons/cat/weapon.png",
+    "previewImageScale": 0.78,
+    "splat": "weapons/cat/impact.png",
+    "splatImageScale": 1.18,
+    "firingSound": "weapons/cat/cat_firing.mp3",
+    "impactSound": "weapons/cat/cat_splat.mp3"
+  },
+  {
+    "id": "paint",
+    "label": "颜料炸弹",
+    "mode": "lob",
+    "power": 3,
+    "preview": "weapons/paint/weapon.png",
+    "previewImageScale": 0.9,
+    "projectile": "weapons/paint/projectile.png",
+    "projectileImageScale": 1.1,
+    "splat": "weapons/paint/splat.png",
+    "splatImageScale": 1.0,
+    "impactSound": "weapons/paint/splat.mp3"
+  }
+]</pre>
+        <p>4. 保存后刷新页面即可看到新的武器选项。可以继续添加对象扩充武器数量。</p>
+        <p>5. 抛掷类武器的弹体会沿抛物线逐渐缩小，起始大小会参照武器展示图，命中时接近 <code>splat.png</code> 的可视尺寸。直射武器可选填 <code>projectile.png</code> 来展示子弹轨迹，也可以省略。建议准备至少与展示图宽度 1.2 倍（约 220px 以上）的溅射图片，以便命中时覆盖更明显。可以使用 <code>previewImageScale</code>、<code>projectileImageScale</code> 与 <code>splatImageScale</code> 微调三张图片的渲染尺寸。</p>
+        <p>6. 使用 <code>power</code> 字段定义每次命中的“威力值”（填写正整数），默认是 1，表示一次只扣掉一个汉字（或拼写单位）。设置为 3 就能一次削掉 3 点耐久，适合“便便”一类的大范围武器。</p>
+        <p>7. 音效按阶段拆分：直射武器点击时播放 <code>firingSound</code>（未填写时会回退到 <code>sfx/hit.mp3</code> 保证有反馈），命中的 <code>impactSound</code> 只有在清单里指定时才会播放，缺省则保持安静；抛掷武器仍在落地时播放 <code>impactSound</code>。若未在清单中写明路径，程序会自动尝试同名文件，例如 <code>weapons/&lt;武器ID&gt;/&lt;武器ID&gt;_firing.mp3</code> 与 <code>weapons/&lt;武器ID&gt;/&lt;武器ID&gt;_splat.mp3</code>。</p>
+        <p>8. 直射武器可选填 <code>recoil</code> 数值来控制准星的后坐力幅度，数值越大抖动越明显。</p>
+      </details>
+    </div>
+  </div>
+<script src="game-obf.js"></script>
+
+</body>
+</html>

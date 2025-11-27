@@ -1,0 +1,482 @@
+[
+  {
+    "id": "a5",
+    "text": "啊",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/a5-啊.mp3"
+  },
+  {
+    "id": "ba5",
+    "text": "吧",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ba5-吧.mp3"
+  },
+  {
+    "id": "bei1_zi5_zai4_na3",
+    "text": "杯子在哪",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/bei1_zi5_zai4_na3-杯子在哪.mp3"
+  },
+  {
+    "id": "bei3_jing1",
+    "text": "北京",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/bei3_jing1-北京.mp3"
+  },
+  {
+    "id": "ben3",
+    "text": "本",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ben3-本.mp3"
+  },
+  {
+    "id": "bu4_ai4_chi1_fan4",
+    "text": "不爱吃饭",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/bu4_ai4_chi1_fan4-不爱吃饭.mp3"
+  },
+  {
+    "id": "bu4_leng3_bu4_re4",
+    "text": "不冷不热",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/bu4_leng3_bu4_re4-不冷不热.mp3"
+  },
+  {
+    "id": "bu4_shao3",
+    "text": "不少",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/bu4_shao3-不少.mp3"
+  },
+  {
+    "id": "bu4_zai4_jia1",
+    "text": "不在家",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/bu4_zai4_jia1-不在家.mp3"
+  },
+  {
+    "id": "cha2",
+    "text": "茶",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/cha2-茶.mp3"
+  },
+  {
+    "id": "chi1",
+    "text": "吃",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/chi1-吃.mp3"
+  },
+  {
+    "id": "da3_dian4_hua4",
+    "text": "打电话",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/da3_dian4_hua4-打电话.mp3"
+  },
+  {
+    "id": "dian3_chi1_fan4",
+    "text": "点吃饭",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/dian3_chi1_fan4-点吃饭.mp3"
+  },
+  {
+    "id": "dian4_nao3",
+    "text": "电脑",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/dian4_nao3-电脑.mp3"
+  },
+  {
+    "id": "dian4_shi4",
+    "text": "电视",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/dian4_shi4-电视.mp3"
+  },
+  {
+    "id": "duo1_shao3",
+    "text": "多少",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/duo1_shao3-多少.mp3"
+  },
+  {
+    "id": "fan4_dian4",
+    "text": "饭店",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/fan4_dian4-饭店.mp3"
+  },
+  {
+    "id": "fei1_ji1",
+    "text": "飞机",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/fei1_ji1-飞机.mp3"
+  },
+  {
+    "id": "fen1_zhong1",
+    "text": "分钟",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/fen1_zhong1-分钟.mp3"
+  },
+  {
+    "id": "gao1_xing4",
+    "text": "高兴",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/gao1_xing4-高兴.mp3"
+  },
+  {
+    "id": "gou3",
+    "text": "狗",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/gou3-狗.mp3"
+  },
+  {
+    "id": "he1",
+    "text": "喝",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/he1-喝.mp3"
+  },
+  {
+    "id": "he2",
+    "text": "和",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/he2-和.mp3"
+  },
+  {
+    "id": "hou4",
+    "text": "后",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/hou4-后.mp3"
+  },
+  {
+    "id": "hou4_mian4",
+    "text": "后面",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/hou4_mian4-后面.mp3"
+  },
+  {
+    "id": "kuai4",
+    "text": "二十八块",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/kuai4-二十八块.mp3"
+  },
+  {
+    "id": "kuai4",
+    "text": "块",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/kuai4-块.mp3"
+  },
+  {
+    "id": "leng3",
+    "text": "冷",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/leng3-冷.mp3"
+  },
+  {
+    "id": "li3",
+    "text": "里",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/li3-里.mp3"
+  },
+  {
+    "id": "li3_xian1_sheng1_ne5",
+    "text": "李先生呢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/li3_xian1_sheng1_ne5-李先生呢.mp3"
+  },
+  {
+    "id": "mao1",
+    "text": "猫",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/mao1-猫.mp3"
+  },
+  {
+    "id": "mei2",
+    "text": "没",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/mei2-没.mp3"
+  },
+  {
+    "id": "mei2_you3",
+    "text": "没有",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/mei2_you3-没有.mp3"
+  },
+  {
+    "id": "mei2_you3",
+    "text": "没有",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/mei2_you3-没有_02.mp3"
+  },
+  {
+    "id": "mi3_fan4",
+    "text": "米饭",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/mi3_fan4-米饭.mp3"
+  },
+  {
+    "id": "ming2_tian1_ne5",
+    "text": "明天呢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ming2_tian1_ne5-明天呢.mp3"
+  },
+  {
+    "id": "na4",
+    "text": "那",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/na4-那.mp3"
+  },
+  {
+    "id": "na4_er2",
+    "text": "那儿",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/na4_er2-那儿.mp3"
+  },
+  {
+    "id": "neng2",
+    "text": "能",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/neng2-能.mp3"
+  },
+  {
+    "id": "neng2",
+    "text": "能",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/neng2-能_02.mp3"
+  },
+  {
+    "id": "ni3_ba4_ba4_zai4_jia1_ma5",
+    "text": "你爸爸在家吗",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ni3_ba4_ba4_zai4_jia1_ma5-你爸爸在家吗.mp3"
+  },
+  {
+    "id": "ni3_mai3_shen2_me5_le5",
+    "text": "你买什么了",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ni3_mai3_shen2_me5_le5-你买什么了.mp3"
+  },
+  {
+    "id": "ni3_mai3_shen2_me5_le5",
+    "text": "你买什么了",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ni3_mai3_shen2_me5_le5-你买什么了_02.mp3"
+  },
+  {
+    "id": "ni3_xia4_wu3_da3_ba5",
+    "text": "你下午打吧",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ni3_xia4_wu3_da3_ba5-你下午打吧.mp3"
+  },
+  {
+    "id": "ni3_xiang3_chi1_shen2_me5",
+    "text": "你想吃什么",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ni3_xiang3_chi1_shen2_me5-你想吃什么.mp3"
+  },
+  {
+    "id": "ni3_xiang3_he1_shen2_me5",
+    "text": "你想喝什么",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ni3_xiang3_he1_shen2_me5-你想喝什么.mp3"
+  },
+  {
+    "id": "ni3_xiang3_mai3_shen2_me5",
+    "text": "你想买什么",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ni3_xiang3_mai3_shen2_me5-你想买什么.mp3"
+  },
+  {
+    "id": "qian2",
+    "text": "钱",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/qian2-钱.mp3"
+  },
+  {
+    "id": "qian2_mian4",
+    "text": "前面",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/qian2_mian4-前面.mp3"
+  },
+  {
+    "id": "qing3_zuo4",
+    "text": "请坐",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/qing3_zuo4-请坐.mp3"
+  },
+  {
+    "id": "re4",
+    "text": "热",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/re4-热.mp3"
+  },
+  {
+    "id": "shang4",
+    "text": "上",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/shang4-上.mp3"
+  },
+  {
+    "id": "shang4_wu3",
+    "text": "上午",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/shang4_wu3-上午.mp3"
+  },
+  {
+    "id": "shao3",
+    "text": "少",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/shao3-少.mp3"
+  },
+  {
+    "id": "shen1_ti3",
+    "text": "身体",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/shen1_ti3-身体.mp3"
+  },
+  {
+    "id": "shi4_de5",
+    "text": "是的",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/shi4_de5-是的.mp3"
+  },
+  {
+    "id": "shui3",
+    "text": "水",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/shui3-水.mp3"
+  },
+  {
+    "id": "shui4_jiao4",
+    "text": "睡觉",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/shui4_jiao4-睡觉.mp3"
+  },
+  {
+    "id": "ta1_jiao4_wang2_fang1",
+    "text": "他叫王芳",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ta1_jiao4_wang2_fang1-他叫王芳.mp3"
+  },
+  {
+    "id": "ta1_jiao4_xie4_peng2",
+    "text": "他叫谢鹏",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ta1_jiao4_xie4_peng2-他叫谢鹏.mp3"
+  },
+  {
+    "id": "ta1_mei2_kan4_shu1",
+    "text": "他没看书",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ta1_mei2_kan4_shu1-他没看书.mp3"
+  },
+  {
+    "id": "ta1_shi4_yi1_sheng1",
+    "text": "他是医生",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ta1_shi4_yi1_sheng1-他是医生.mp3"
+  },
+  {
+    "id": "ta1_zai4_gong1_zuo4_ne5",
+    "text": "他在工作呢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ta1_zai4_gong1_zuo4_ne5-他在工作呢.mp3"
+  },
+  {
+    "id": "ta1_zai4_na3_er2_ne5",
+    "text": "他在哪儿呢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ta1_zai4_na3_er2_ne5-他在哪儿呢.mp3"
+  },
+  {
+    "id": "ta1_zai4_yi1_yuan4",
+    "text": "他在医院",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ta1_zai4_yi1_yuan4-他在医院.mp3"
+  },
+  {
+    "id": "tai4",
+    "text": "太",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/tai4-太.mp3"
+  },
+  {
+    "id": "tai4_re4_le5",
+    "text": "太热了",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/tai4_re4_le5-太热了.mp3"
+  },
+  {
+    "id": "tian1_qi4",
+    "text": "天气",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/tian1_qi4-天气.mp3"
+  },
+  {
+    "id": "tian1_qi4_tai4_re4_le5",
+    "text": "天气太热了",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/tian1_qi4_tai4_re4_le5-天气太热了.mp3"
+  },
+  {
+    "id": "ting1",
+    "text": "听",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/ting1-听.mp3"
+  },
+  {
+    "id": "wo3_neng2_zuo4_zhe4_er2_ma5",
+    "text": "我能坐这儿吗",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/wo3_neng2_zuo4_zhe4_er2_ma5-我能坐这儿吗.mp3"
+  },
+  {
+    "id": "wo3_shen1_ti3_bu4_tai4_hao3",
+    "text": "我身体不太好",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/wo3_shen1_ti3_bu4_tai4_hao3-我身体不太好.mp3"
+  },
+  {
+    "id": "wo3_xiang3_he1_cha2",
+    "text": "我想喝茶",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/wo3_xiang3_he1_cha2-我想喝茶.mp3"
+  },
+  {
+    "id": "wo3_zai4_kan4_shu1_ne5",
+    "text": "我在看书呢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/wo3_zai4_kan4_shu1_ne5-我在看书呢.mp3"
+  },
+  {
+    "id": "xi3_huan1",
+    "text": "喜欢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xi3_huan1-喜欢.mp3"
+  },
+  {
+    "id": "xia4",
+    "text": "下",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xia4-下.mp3"
+  },
+  {
+    "id": "xia4",
+    "text": "下",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xia4-下_02.mp3"
+  },
+  {
+    "id": "xia4_mian4",
+    "text": "下面",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xia4_mian4-下面.mp3"
+  },
+  {
+    "id": "xia4_wu3_5_dian3",
+    "text": "下午五点",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xia4_wu3_5_dian3-下午五点.mp3"
+  },
+  {
+    "id": "xia4_yu3",
+    "text": "下雨",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xia4_yu3-下雨.mp3"
+  },
+  {
+    "id": "xian4_zai4",
+    "text": "现在",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xian4_zai4-现在.mp3"
+  },
+  {
+    "id": "xiang3",
+    "text": "想",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xiang3-想.mp3"
+  },
+  {
+    "id": "xiao3",
+    "text": "小",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xiao3-小.mp3"
+  },
+  {
+    "id": "xiao3_mao1_zai4_na3_er2",
+    "text": "小猫在哪儿",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xiao3_mao1_zai4_na3_er2-小猫在哪儿.mp3"
+  },
+  {
+    "id": "xie4_xie4_ni3_yi1_sheng1",
+    "text": "谢谢你医生",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/xie4_xie4_ni3_yi1_sheng1-谢谢你医生.mp3"
+  },
+  {
+    "id": "yi3_zi5",
+    "text": "椅子",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/yi3_zi5-椅子.mp3"
+  },
+  {
+    "id": "yu3",
+    "text": "雨",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/yu3-雨.mp3"
+  },
+  {
+    "id": "zai4",
+    "text": "在",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zai4-在.mp3"
+  },
+  {
+    "id": "zen3_me5_yang4",
+    "text": "怎么样",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zen3_me5_yang4-怎么样.mp3"
+  },
+  {
+    "id": "zhang1",
+    "text": "张",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zhang1-张.mp3"
+  },
+  {
+    "id": "zhe4",
+    "text": "这",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zhe4-这.mp3"
+  },
+  {
+    "id": "zhe4_er2",
+    "text": "这儿",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zhe4_er2-这儿.mp3"
+  },
+  {
+    "id": "zhe4_er2_you3_ren2_ma5",
+    "text": "这儿有人吗",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zhe4_er2_you3_ren2_ma5-这儿有人吗.mp3"
+  },
+  {
+    "id": "zhu4_san1_tian1",
+    "text": "住三天",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zhu4_san1_tian1-住三天.mp3"
+  },
+  {
+    "id": "zhuo1_zi5",
+    "text": "桌子",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zhuo1_zi5-桌子.mp3"
+  },
+  {
+    "id": "zuo4",
+    "text": "做",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/words/zuo4-做.mp3"
+  }
+]
