@@ -1,0 +1,14 @@
+{
+  "datasets": [
+    "audio/hsk110.json",
+    "audio/hsk113.json",
+    "audio/hsk201.json",
+    "audio/hsk203.json",
+    "audio/hsk301.json",
+    "audio/hsk10103.json",
+    "audio/hsk10405.json",
+    "audio/hsk10607.json",
+    "audio/yct10104.json",
+    "audio/hsk2.json"
+  ]
+}
