@@ -5,8 +5,8 @@
 <title>汉字听音射击（网页版：支持自定义词库）</title>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <style>
-  :root{color-scheme:dark;--body-bg:#0b1220;--text-color:#fff;--canvas-bg:#071129;--canvas-border:#0c61a1;--ui-bg:rgba(0,0,0,.28);--ui-shadow:0 8px 30px rgba(0,0,0,.6);--button-bg:#0c6;--button-color:#002;--button-hover-filter:brightness(1.08);--button-focus-ring:0 0 0 2px rgba(12,102,0,.4);--badge-bg:rgba(255,255,255,.07);--tone-button-bg:#133047;--tone-button-border:rgba(255,255,255,.12);--tone-button-color:#fff;--tone-button-hover-bg:#1c4670;--tone-button-active-bg:#1c5d99;--message-bg:rgba(0,0,0,.45);--overlay-bg:rgba(0,0,0,.55);--panel-bg:#0f1a33;--panel-border:#275;--panel-text:#cfe;--panel-link:#9fe;--menu-title:#fff;--badge-text-weight:600;}
-  body.theme-light{color-scheme:light;--body-bg:#f6f7fb;--text-color:#111;--canvas-bg:#ffffff;--canvas-border:#8ab4f8;--ui-bg:rgba(0,0,0,.06);--ui-shadow:0 6px 24px rgba(15,35,75,.16);--button-bg:#1e80ff;--button-color:#fff;--button-hover-filter:brightness(.97);--button-focus-ring:0 0 0 2px rgba(30,128,255,.28);--badge-bg:rgba(0,0,0,.08);--tone-button-bg:#e8f0ff;--tone-button-border:rgba(30,80,160,.18);--tone-button-color:#0d1f33;--tone-button-hover-bg:#d6e4ff;--tone-button-active-bg:#c2d6ff;--message-bg:rgba(0,0,0,.65);--overlay-bg:rgba(255,255,255,.7);--panel-bg:#ffffff;--panel-border:#8ab4f8;--panel-text:#123;--panel-link:#1160c5;--menu-title:#0a1a33;--badge-text-weight:600;}
+  :root{color-scheme:dark;--body-bg:#0b1220;--text-color:#fff;--canvas-bg:#071129;--canvas-border:#0c61a1;--ui-bg:rgba(0,0,0,.28);--ui-shadow:0 8px 30px rgba(0,0,0,.6);--button-bg:#0c6;--button-color:#002;--button-hover-filter:brightness(1.08);--button-focus-ring:0 0 0 2px rgba(12,102,0,.4);--badge-bg:rgba(255,255,255,.07);--tone-button-bg:#133047;--tone-button-border:rgba(255,255,255,.12);--tone-button-color:#fff;--tone-button-hover-bg:#1c4670;--tone-button-active-bg:#1c5d99;--message-bg:rgba(0,0,0,.45);--overlay-bg:rgba(0,0,0,.55);--panel-bg:#0f1a33;--panel-border:#275;--panel-text:#cfe;--panel-link:#9fe;--menu-title:#fff;--badge-text-weight:600;--hud-bg:rgba(4,12,28,.6);--hud-border:rgba(255,255,255,.16);--hud-text:#f6f7fb;}
+  body.theme-light{color-scheme:light;--body-bg:#f6f7fb;--text-color:#111;--canvas-bg:#ffffff;--canvas-border:#8ab4f8;--ui-bg:rgba(0,0,0,.06);--ui-shadow:0 6px 24px rgba(15,35,75,.16);--button-bg:#1e80ff;--button-color:#fff;--button-hover-filter:brightness(.97);--button-focus-ring:0 0 0 2px rgba(30,128,255,.28);--badge-bg:rgba(0,0,0,.08);--tone-button-bg:#e8f0ff;--tone-button-border:rgba(30,80,160,.18);--tone-button-color:#0d1f33;--tone-button-hover-bg:#d6e4ff;--tone-button-active-bg:#c2d6ff;--message-bg:rgba(0,0,0,.65);--overlay-bg:rgba(255,255,255,.7);--panel-bg:#ffffff;--panel-border:#8ab4f8;--panel-text:#123;--panel-link:#1160c5;--menu-title:#0a1a33;--badge-text-weight:600;--hud-bg:rgba(255,255,255,.92);--hud-border:rgba(12,34,64,.14);--hud-text:#0a1a33;}
   html,body{height:100%;margin:0;background:var(--body-bg);color:var(--text-color);font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;display:flex;flex-direction:column;align-items:center;padding:18px 14px;box-sizing:border-box;transition:background .3s,color .3s;}
   #game{display:block;margin:12px auto 0;background:var(--canvas-bg);border:6px solid var(--canvas-border);box-shadow:var(--ui-shadow);cursor:crosshair;max-width:100%;height:auto;transition:background .3s,border-color .3s,box-shadow .3s;}
   .ui{width:100%;max-width:1000px;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;align-items:center;background:var(--ui-bg);padding:10px 16px;border-radius:12px;box-sizing:border-box;transition:background .3s,box-shadow .3s;}
@@ -19,7 +19,24 @@
   label.switch{display:inline-flex;align-items:center;gap:6px;user-select:none;font-size:14px;}
   .switch input{width:18px;height:18px;}
   .setting{display:flex;align-items:center;gap:6px;font-size:14px;}
+  .primary-controls,.status-badges,.secondary-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .primary-controls{flex:1 1 280px;}
+  .status-badges{flex:2 1 320px;}
+  .secondary-controls{flex:1 1 100%;}
+  .more-btn{display:none;align-items:center;gap:8px;justify-content:center;width:100%;font-weight:700;background:linear-gradient(135deg,var(--button-bg),#20c997);color:var(--button-color);}
+  .drawer{position:fixed;inset:0;display:flex;align-items:flex-end;justify-content:center;z-index:80;background:var(--overlay-bg);backdrop-filter:blur(2px);}
+  .drawer[hidden]{display:none !important;}
+  .drawer-panel{background:var(--panel-bg);color:var(--panel-text);border:1px solid var(--panel-border);border-radius:14px 14px 0 0;box-shadow:var(--ui-shadow);width:min(720px,100%);padding:16px;max-height:85vh;display:flex;flex-direction:column;gap:12px;}
+  .drawer-header{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .drawer-header h3{margin:0;font-size:18px;color:var(--menu-title);}
+  .drawer-close{background:transparent;color:var(--panel-text);border:1px solid var(--panel-border);padding:6px 10px;border-radius:8px;min-width:44px;}
+  .drawer-body{display:flex;flex-direction:column;gap:12px;}
+  .drawer-body .secondary-controls{display:flex;flex-direction:column;align-items:stretch;}
+  .drawer-body .setting{justify-content:space-between;}
   .game-wrapper{position:relative;width:100%;max-width:1000px;}
+  .game-hud{position:absolute;left:12px;top:12px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:var(--hud-bg);color:var(--hud-text);padding:6px 8px;border-radius:12px;border:1px solid var(--hud-border);box-shadow:var(--ui-shadow);backdrop-filter:blur(6px);z-index:25;pointer-events:none;user-select:none;}
+  .game-hud .badge{background:transparent;border:1px solid rgba(255,255,255,.14);padding:2px 7px;line-height:1.2;color:inherit;}
+  body.theme-light .game-hud .badge{border-color:rgba(12,34,64,.16);}
   .tone-controls{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;max-width:1000px;}
   .tone-controls[hidden]{display:none !important;}
   .tone-button{background:var(--tone-button-bg);color:var(--tone-button-color);border:1px solid var(--tone-button-border);border-radius:999px;padding:10px 14px;min-width:64px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:18px;cursor:pointer;transition:transform .12s ease,background .18s ease,box-shadow .18s ease,color .18s ease;}
@@ -42,6 +59,19 @@
   #menuBox{background:var(--panel-bg);border:1px solid var(--panel-border);padding:24px;border-radius:12px;text-align:center;width:300px;color:var(--panel-text);}
   #menuBox h2{margin:0 0 12px;color:var(--menu-title);}
   #menuBox button{margin-top:8px;width:200px;font-size:16px;}
+  #datasetPicker{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:65;background:var(--overlay-bg)}
+  #datasetPicker[hidden]{display:none !important;}
+  #datasetBox{background:var(--panel-bg);border:1px solid var(--panel-border);padding:18px;border-radius:14px;color:var(--panel-text);width:min(92%,520px);box-shadow:var(--ui-shadow);}
+  #datasetBox h3{margin:0 0 10px;color:var(--menu-title);font-size:18px;}
+  #datasetList{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;max-height:320px;overflow:auto;}
+  .dataset-group{border:1px solid var(--panel-border);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px;background:var(--badge-bg);}
+  .dataset-group h4{margin:0;font-size:14px;color:var(--panel-text);opacity:.85;}
+  .dataset-option{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid var(--panel-border);background:var(--panel-bg);color:var(--panel-text);cursor:pointer;transition:filter .18s,transform .12s;}
+  .dataset-option:hover{filter:var(--button-hover-filter);}
+  .dataset-option strong{font-size:14px;}
+  .dataset-meta{font-size:12px;opacity:.8;}
+  .dataset-actions{margin-top:12px;display:flex;justify-content:flex-end;}
+  #datasetCancelBtn{background:transparent;color:var(--panel-text);border:1px solid var(--panel-border);}
   .cta-inline{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;width:100%;max-width:1000px;margin-bottom:10px;}
   .cta-inline .lang-toggle{justify-self:start;}
   .cta-inline .cta-button{justify-self:center;}
@@ -50,12 +80,41 @@
     background:linear-gradient(135deg,#ff6f61,#ffd166);color:#1b1033;font-weight:800;box-shadow:0 0 18px rgba(255,111,97,.6);
     text-decoration:none;letter-spacing:0.2px;text-transform:uppercase;animation:pulseGlow 1.6s ease-in-out infinite;}
   .cta-button:hover{filter:brightness(1.05);}
+  #scoreModal{align-items:center;justify-content:center;}
+  #scoreModal[hidden]{display:none !important;}
+  #scoreModal .drawer-panel{border-radius:14px;}
+  .score-form{display:flex;flex-direction:column;gap:10px;}
+  .score-form label{font-size:14px;color:var(--panel-text);}
+  .score-form input{padding:8px 10px;border-radius:8px;border:1px solid var(--panel-border);background:var(--badge-bg);color:var(--panel-text);font-size:15px;}
+  .score-actions{display:flex;gap:10px;justify-content:flex-end;}
+  .leaderboard{border:1px solid var(--panel-border);border-radius:12px;padding:10px;background:var(--badge-bg);}
+  .leaderboard h4{margin:0 0 8px;font-size:15px;color:var(--panel-text);}
+  .leaderboard table{width:100%;border-collapse:collapse;color:var(--panel-text);font-size:14px;}
+  .leaderboard th,.leaderboard td{padding:6px;border-bottom:1px solid var(--panel-border);text-align:left;}
+  .leaderboard tr:last-child td{border-bottom:none;}
+  .result-meta{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--panel-text);}
   .lang-toggle{display:flex;gap:6px;}
   .lang-toggle button{padding:4px 8px;font-size:12px;border-radius:999px;background:var(--badge-bg);color:var(--text-color);
     border:1px solid rgba(255,255,255,.18);box-shadow:none;}
   .lang-toggle button.active{background:#4ef0a5;color:#002;font-weight:700;}
   @keyframes pulseGlow{0%{box-shadow:0 0 12px rgba(255,111,97,.55);}50%{box-shadow:0 0 24px rgba(255,209,102,.85);}100%{box-shadow:0 0 12px rgba(255,111,97,.55);}}
   #lives{color:#ff4d6d;font-weight:700;}
+  @media (max-width:720px){
+    html,body{padding:14px 10px;}
+    .ui{flex-direction:column;align-items:stretch;gap:10px;}
+    .primary-controls{flex-direction:column;align-items:stretch;}
+    .primary-controls button{width:100%;font-size:16px;padding:10px 12px;}
+    .status-badges{width:100%;justify-content:space-between;row-gap:10px;display:none;}
+    .game-hud{left:10px;top:10px;right:10px;flex-direction:row;justify-content:flex-start;gap:6px;padding:6px 8px;font-size:13px;}
+    .game-hud .badge{padding:2px 6px;font-size:13px;}
+    .ui>.secondary-controls{display:none;}
+    .more-btn{display:inline-flex;}
+    .drawer{align-items:flex-end;}
+  }
+  @media (max-width:520px){
+    .game-hud{gap:4px;padding:6px;font-size:12px;}
+    .game-hud .badge{padding:1px 5px;font-size:12px;border-radius:8px;}
+  }
 </style>
 </head>
 <body class="theme-dark">
@@ -69,48 +128,41 @@
   </div>
 
   <div class="ui">
-    <button id="startBtn" title="开始新的一局" data-i18n="restart">Restart</button>
-    <button id="pauseBtn" title="暂停或继续当前游戏" data-i18n="pause">Pause</button>
-    <button id="menuBtn" title="返回模式选择并重新开始" data-i18n="menu">模式菜单</button>
-    <span class="badge"><span data-i18n="scoreLabel">Score:</span>&nbsp;<span id="score">0</span></span>
-    <span class="badge"><span data-i18n="comboLabel">Combo:</span>&nbsp;<span id="combo">0</span></span>
-    <span class="badge"><span data-i18n="roundLabel">Round:</span>&nbsp;<span id="round">1</span></span>
-    <span class="badge"><span data-i18n="timerLabel">Timer:</span>&nbsp;<span id="timer">00:00</span></span>
-    <span class="badge"><span data-i18n="livesLabel">Lives:</span>&nbsp;<span id="lives">♥♥♥♥♥</span></span>
-    <button id="replayBtn" title="重播当前题目 (R)" data-i18n="replay">重播 (R)</button>
-    <label class="switch" data-i18n-wrapper="pinyin"><input type="checkbox" id="pinyinToggle" /> <span data-i18n="pinyin">显示拼音</span></label>
-    <label class="setting" data-i18n-wrapper="duration"><span data-i18n="duration">时长</span>
-      <select id="timerSelect">
-        <option value="180" selected data-i18n="duration3">3 分钟</option>
-        <option value="300" data-i18n="duration5">5 分钟</option>
-        <option value="480" data-i18n="duration8">8 分钟</option>
-      </select>
-    </label>
-    <label class="setting" data-i18n-wrapper="speed"><span data-i18n="speed">速度</span>
-      <select id="speedSelect">
-        <option value="30" data-i18n="speed1">较慢</option>
-        <option value="36" data-i18n="speed2">慢速</option>
-        <option value="48" selected data-i18n="speed3">标准</option>
-        <option value="60" data-i18n="speed4">快速</option>
-        <option value="72" data-i18n="speed5">很快</option>
-        <option value="90" data-i18n="speed6">极速</option>
-      </select>
-    </label>
-    <label class="setting" data-i18n-wrapper="mode"><span data-i18n="mode">模式</span>
-      <select id="modeSelect">
-        <option value="shooting" selected data-i18n="modeShooting">射击</option>
-        <option value="tone" data-i18n="modeTone">声调</option>
-      </select>
-    </label>
-    <label class="setting" data-i18n-wrapper="theme"><span data-i18n="theme">主题</span>
-      <select id="themeSelect">
-        <option value="dark" selected data-i18n="themeDark">深色</option>
-        <option value="light" data-i18n="themeLight">浅色</option>
-      </select>
-    </label>
-    <label class="setting" id="weaponSetting" data-i18n-wrapper="weapon"><span data-i18n="weapon">武器</span>
-      <select id="weaponSelect"></select>
-    </label>
+    <div class="primary-controls">
+      <button id="startBtn" title="开始新的一局" data-i18n="restart">Restart</button>
+      <button id="pauseBtn" title="暂停或继续当前游戏" data-i18n="pause">Pause</button>
+      <button id="menuBtn" title="返回模式选择并重新开始" data-i18n="menu">模式菜单</button>
+    </div>
+    <div id="secondaryControls" class="secondary-controls">
+      <button id="replayBtn" title="重播当前题目 (R)" data-i18n="replay">重播 (R)</button>
+      <label class="switch" data-i18n-wrapper="pinyin"><input type="checkbox" id="pinyinToggle" /> <span data-i18n="pinyin">显示拼音</span></label>
+      <label class="setting" data-i18n-wrapper="speed"><span data-i18n="speed">速度</span>
+        <select id="speedSelect">
+          <option value="30" data-i18n="speed1">较慢</option>
+          <option value="36" data-i18n="speed2">慢速</option>
+          <option value="48" selected data-i18n="speed3">标准</option>
+          <option value="60" data-i18n="speed4">快速</option>
+          <option value="72" data-i18n="speed5">很快</option>
+          <option value="90" data-i18n="speed6">极速</option>
+        </select>
+      </label>
+      <label class="setting" data-i18n-wrapper="mode"><span data-i18n="mode">模式</span>
+        <select id="modeSelect">
+          <option value="shooting" selected data-i18n="modeShooting">射击</option>
+          <option value="tone" data-i18n="modeTone">声调</option>
+        </select>
+      </label>
+      <label class="setting" data-i18n-wrapper="theme"><span data-i18n="theme">主题</span>
+        <select id="themeSelect">
+          <option value="dark" selected data-i18n="themeDark">深色</option>
+          <option value="light" data-i18n="themeLight">浅色</option>
+        </select>
+      </label>
+      <label class="setting" id="weaponSetting" data-i18n-wrapper="weapon"><span data-i18n="weapon">武器</span>
+        <select id="weaponSelect"></select>
+      </label>
+    </div>
+    <button id="moreBtn" class="more-btn" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="drawer">⚙️ More</button>
     <div class="cta-inline">
       <div class="lang-toggle">
         <button type="button" data-lang="zh" class="active">中文</button>
@@ -121,11 +173,63 @@
   </div>
 
   <div class="game-wrapper">
+    <div class="game-hud" aria-live="polite">
+      <span class="badge"><span data-i18n="scoreLabel">Score:</span>&nbsp;<span id="score">0</span></span>
+      <span class="badge"><span data-i18n="comboLabel">Combo:</span>&nbsp;<span id="combo">0</span></span>
+      <span class="badge"><span data-i18n="roundLabel">Round:</span>&nbsp;<span id="round">1</span></span>
+      <span class="badge"><span data-i18n="timerLabel">Timer:</span>&nbsp;<span id="timer">00:00</span></span>
+      <span class="badge"><span data-i18n="livesLabel">Lives:</span>&nbsp;<span id="lives">♥♥♥♥♥</span></span>
+    </div>
     <canvas id="game" width="1000" height="600"></canvas>
     <div id="message"></div>
   </div>
 
+  <div id="drawer" class="drawer" hidden>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+      <div class="drawer-header">
+        <h3 id="drawerTitle">更多设置</h3>
+        <button type="button" class="drawer-close" id="drawerCloseBtn" aria-label="关闭">✕</button>
+      </div>
+      <div class="drawer-body" id="drawerBody"></div>
+    </div>
+  </div>
+
   <div id="toneControls" class="tone-controls" hidden></div>
+
+  <div id="scoreModal" class="drawer" hidden>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="scoreModalTitle">
+      <div class="drawer-header">
+        <h3 id="scoreModalTitle" data-i18n="scoreModalTitle">📝 成绩记录</h3>
+        <button type="button" class="drawer-close" id="scoreCloseBtn" aria-label="关闭">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="result-meta" id="resultMeta"></div>
+        <div class="score-form" id="scoreForm">
+          <label for="playerName" data-i18n="scoreNameLabel">填写你的名字（最多 10 个字符）</label>
+          <input type="text" id="playerName" maxlength="10" autocomplete="name" />
+          <div class="score-actions">
+            <button type="button" id="scoreSubmitBtn" data-i18n="scoreSubmit">提交成绩</button>
+            <button type="button" id="scoreSkipBtn" class="drawer-close" data-i18n="scoreSkip">稍后再说</button>
+          </div>
+        </div>
+        <div class="leaderboard" id="leaderboardPanel" hidden>
+          <h4 data-i18n="leaderboardTitle">分数榜</h4>
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="rankCol">名次</th>
+                <th data-i18n="nameCol">名字</th>
+                <th data-i18n="scoreCol">分数</th>
+                <th data-i18n="timeCol">用时</th>
+                <th data-i18n="datasetCol">词库</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- 启动菜单 -->
   <div id="startMenu">
@@ -134,6 +238,17 @@
       <button id="shootingStartBtn">射击模式</button><br>
       <button id="toneStartBtn">声调模式</button><br>
       <button id="customVocabBtn" style="background:#07c;">Upload Vocabulary</button>
+    </div>
+  </div>
+
+  <div id="datasetPicker" hidden>
+    <div id="datasetBox">
+      <h3 data-i18n="datasetHeading">选择词库</h3>
+      <p id="datasetDescription" style="margin:6px 0 12px;opacity:.82" data-i18n="datasetDescription">请选择想要使用的 HSK 词库，系统会自动按级别分组显示。</p>
+      <ul id="datasetList"></ul>
+      <div class="dataset-actions">
+        <button id="datasetCancelBtn" type="button" data-i18n="datasetCancel">返回</button>
+      </div>
     </div>
   </div>
 
@@ -194,6 +309,7 @@
       </details>
     </div>
   </div>
+
 <script src="game-obf.js"></script>
 
 </body>
