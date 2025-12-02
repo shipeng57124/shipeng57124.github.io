@@ -1,0 +1,5 @@
+cd /d J:\Software\声调俄罗斯方块chatgpt
+python -m http.server 8000
+
+
+http://localhost:8000/toneteris.html

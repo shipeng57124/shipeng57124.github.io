@@ -1,0 +1,119 @@
+一、先正确抽出 JS（做一个干净的 game.js）
+
+打开：
+shooting_characters_web11.25.5.html （最新那个游戏页面）
+
+在里面找到那一大坨脚本，类似：
+
+<script>
+…一大坨代码…
+</script>
+
+
+只复制中间那一大坨 JS 代码，注意：
+
+不要复制 <script> 这一行
+
+不要复制 </script> 这一行
+
+也不要带上 <!doctype html>、<html> 这些东西
+
+在 J:\shooting game online\发布到网站 这个文件夹里，新建一个文件：
+game.js
+
+把刚才复制的那一大坨 JS 粘贴进去，保存。
+
+检查一下 game.js 的第一行（或者第一行非空行）一定长得像这样：
+
+const canvas = document.getElementById('game');
+// 或者 let xxx = ... 之类
+
+
+如果第一行是：
+
+<!doctype html>
+<script>
+
+
+之类的，那就说明你又把 HTML 一起复制进来了，必须删掉。
+
+二、顺便把默认语言改成英文（在混淆前改）
+
+在你刚做好的 game.js 里，往下翻到接近文件末尾，会看到类似：
+
+setLanguage('zh');
+
+
+把它改成：
+
+setLanguage('en');
+
+
+保存。
+这样游戏默认 UI 就是英文了。
+
+三、用 javascript-obfuscator 混淆
+
+现在命令才能正常跑：
+
+在命令行里进入发布目录：
+
+cd "J:\shooting game online\发布到网站"
+
+
+执行混淆命令（注意路径里有空格，所以上面用了双引号，这里就不用再写路径）：
+
+npx javascript-obfuscator game.js --output game-obf.js --compact true --control-flow-flattening true
+
+
+正常的话，会看到类似：
+
+[javascript-obfuscator-cli] Obfuscating file: game.js...
+
+
+然后同文件夹下会多出来一个 game-obf.js。
+
+如果再看到 Unexpected token (1:0)，基本就是 game.js 里第一行还是有 <、<!doctype html> 之类的东西，回到 第一步 把 HTML 全删干净。
+
+四、让页面用混淆后的 JS
+
+现在要改 HTML，让它加载 game-obf.js：
+
+打开 shooting_characters_web11.25.5.html。
+
+把原来那一大坨内联 <script> ... 很长 ... </script> 整段删掉。
+
+在 </body> 前面，插入一行：
+
+<script src="game-obf.js"></script>
+</body>
+</html>
+
+
+也就是把原来那坨 JS 换成一个外链脚本。
+
+保存之后，用浏览器打开 shooting_characters_web11.25.5.html，测试游戏：
+
+游戏能正常运行 ✅
+
+文本默认是英文 ✅（说明 setLanguage('en') 生效了）
+
+五、常见坑再帮你总结一下
+
+坑 1：把 HTML 一起放进 game.js
+→ 看到 <!doctype html>、<script>、</script> 一律删光，只留纯 JS。
+
+坑 2：路径问题
+你这次命令用的是 game.js，没问题，只要在正确目录 发布到网站 下就行。
+
+坑 3：混淆前后搞混
+
+编辑、调试 → 用 game.js
+
+上线、发布 → 用 game-obf.js，并在 HTML 里只引用它。
+
+你先按上面四步做一轮：
+1）做干净的 game.js；
+2）改成 setLanguage('en')；
+3）混淆出 game-obf.js；
+4）HTML 里换成 <script src="game-obf.js"></script>。
