@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tone Tetris</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #0f1115;
+      color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+      margin: 0;
+    }
+    #game-container {
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    #top-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    #top-actions {
+      display: flex;
+      gap: 6px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    button {
+      padding: 8px 12px;
+      margin: 0;
+      cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      background: #2c2f38;
+      color: #fff;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    #lang-btn {
+      font-size: 12px;
+      padding: 6px 10px;
+      background: #3a3e49;
+    }
+    #welcome-panel {
+      width: 100%;
+      background: #16191f;
+      border: 1px solid #252a33;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    #setup-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 8px 0;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #2c3039;
+      background: #0f1115;
+      color: #f2f2f2;
+    }
+    #start-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #ff7a45, #ff4d4f);
+      font-weight: bold;
+    }
+    #game-area {
+      width: 100%;
+      background: #16191f;
+      border: 1px solid #252a33;
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    }
+    #canvas-container {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0b0c10;
+      border: 1px solid #2c3039;
+    }
+    #game-over-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.65);
+      gap: 10px;
+      text-align: center;
+      padding: 16px;
+      backdrop-filter: blur(2px);
+    }
+    #game-over-text {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #restart-btn {
+      background: linear-gradient(135deg, #7c8cff, #5465ff);
+      font-weight: bold;
+      min-width: 120px;
+    }
+    #game-canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #07080c;
+    }
+    #hud {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 13px;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    #status-label, #current-text-label {
+      margin-top: 4px;
+      font-size: 13px;
+    }
+    #tone-buttons {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+    .tone-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 4px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: bold;
+      min-height: 56px;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .tone-symbol {
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+    .tone-name {
+      font-size: 12px;
+      opacity: 0.85;
+    }
+    #info, #records {
+      display: none;
+    }
+    /* 结算输入框 */
+    #result-modal {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #181b22;
+      border: 1px solid #2e3440;
+      border-radius: 12px;
+      padding: 14px 18px;
+      z-index: 900;
+      display: none;
+      min-width: 260px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+    #result-modal h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    #result-modal label {
+      font-size: 14px;
+    }
+    #result-modal input {
+      width: 100%;
+      padding: 6px 8px;
+      margin: 4px 0 8px;
+      border-radius: 8px;
+      border: 1px solid #2c3039;
+      background: #0f1115;
+      color: #eee;
+    }
+    #result-modal button {
+      margin-top: 4px;
+    }
+    #main-ui {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="game-container">
+  <div id="top-bar">
+    <h1 id="title">声调方块</h1>
+    <div id="top-actions">
+      <button id="setup-toggle">设置</button>
+      <button id="lang-btn">English</button>
+    </div>
+  </div>
+
+  <!-- 欢迎与设置界面 -->
+  <div id="welcome-panel">
+    <p id="welcome-text">
+      点击下面的按钮进入游戏，然后先选择等级，再选择词库开始练习。
+    </p>
+    <div id="setup-grid">
+      <div>
+        <label id="level-label" for="level-select">选择等级：</label>
+        <select id="level-select"></select>
+      </div>
+      <div>
+        <label id="deck-label" for="deck-select">选择词库：</label>
+        <select id="deck-select"></select>
+      </div>
+    </div>
+    <button id="start-btn">开始游戏</button>
+  </div>
+
+  <!-- 游戏区域 -->
+  <div id="game-area">
+    <div id="canvas-container">
+      <div id="hud">
+        <div id="score-label">分数：<span id="score">0</span></div>
+        <div id="combo-label">连击：<span id="combo">0</span></div>
+        <div id="timer">用时：<span id="time">0.0</span>s</div>
+      </div>
+      <canvas id="game-canvas" width="420" height="700"></canvas>
+      <div id="game-over-overlay">
+        <div id="game-over-text">游戏结束！</div>
+        <button id="restart-btn">再来一次</button>
+      </div>
+    </div>
+    <div id="status-label"></div>
+    <div id="current-text-label"></div>
+    <div id="tone-buttons"></div>
+  </div>
+
+  <div id="info"></div>
+
+  <div id="records">
+    <h3 id="records-title">当前词库成绩</h3>
+    <ul id="records-list"></ul>
+  </div>
+</div>
+
+<!-- 结算输入名字 -->
+<div id="result-modal">
+  <h2 id="modal-title">本局成绩</h2>
+  <div id="modal-summary" style="font-size:13px;margin-bottom:6px;"></div>
+  <label id="name-label" for="player-name">请输入名字：</label>
+  <input id="player-name" type="text" maxlength="16" />
+  <button id="save-result-btn">保存成绩</button>
+  <button id="close-result-btn">关闭</button>
+</div>
+
+<script src="game-obf.js"></script>
+
+</body>
+</html>
