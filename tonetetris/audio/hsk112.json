@@ -2,171 +2,156 @@
   {
     "id": "ai4",
     "text": "爱",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/ai4-爱.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/ai4-爱.mp3"
   },
   {
     "id": "bu2_hui4_lai2",
     "text": "不会来",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/bu2_hui4_lai2-不会来.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/bu2_hui4_lai2-不会来.mp3"
   },
   {
     "id": "bu4_ai4_chi1_fan4",
     "text": "不爱吃饭",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/bu4_ai4_chi1_fan4-不爱吃饭.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/bu4_ai4_chi1_fan4-不爱吃饭.mp3"
   },
   {
     "id": "bu4_leng3_bu4_re4",
     "text": "不冷不热",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/bu4_leng3_bu4_re4-不冷不热.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/bu4_leng3_bu4_re4-不冷不热.mp3"
   },
   {
     "id": "duo1_he1_shui3",
     "text": "多喝水",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/duo1_he1_shui3-多喝水.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/duo1_he1_shui3-多喝水.mp3"
   },
   {
     "id": "jin1_tian1_bu2_hui4_xia4_yu3",
     "text": "今天不会下雨",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/jin1_tian1_bu2_hui4_xia4_yu3-今天不会下雨.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/jin1_tian1_bu2_hui4_xia4_yu3-今天不会下雨.mp3"
   },
   {
     "id": "jin1_tian1_hui4_xia4_yu3_ma5",
     "text": "今天会下雨吗",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/jin1_tian1_hui4_xia4_yu3_ma5-今天会下雨吗.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/jin1_tian1_hui4_xia4_yu3_ma5-今天会下雨吗.mp3"
   },
   {
     "id": "lai2",
     "text": "来",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/lai2-来.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/lai2-来.mp3"
   },
   {
     "id": "leng3",
     "text": "冷",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/leng3-冷.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/leng3-冷.mp3"
   },
   {
     "id": "ming2_tian1_ne5",
     "text": "明天呢",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/ming2_tian1_ne5-明天呢.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/ming2_tian1_ne5-明天呢.mp3"
   },
   {
     "id": "ming2_tian1_tian1_qi4_hen3_hao3",
     "text": "明天天气很好",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/ming2_tian1_tian1_qi4_hen3_hao3-明天天气很好.mp3"
-  },
-  {
-    "id": "ming2_tian1_tian1_qi4_zen3_me5_yang4",
-    "text": "明天天气怎么样",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/ming2_tian1_tian1_qi4_zen3_me5_yang4-明天天气怎么样.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/ming2_tian1_tian1_qi4_hen3_hao3-明天天气很好.mp3"
   },
   {
     "id": "ni3_duo1_chi1_xie1_shui3_guo3",
     "text": "你多吃些水果",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/ni3_duo1_chi1_xie1_shui3_guo3-你多吃些水果.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/ni3_duo1_chi1_xie1_shui3_guo3-你多吃些水果.mp3"
   },
   {
     "id": "ni3_shen1_ti3_zen3_me5_yang4",
     "text": "你身体怎么样",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/ni3_shen1_ti3_zen3_me5_yang4-你身体怎么样.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/ni3_shen1_ti3_zen3_me5_yang4-你身体怎么样.mp3"
   },
   {
     "id": "re4",
     "text": "热",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/re4-热.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/re4-热.mp3"
   },
   {
     "id": "shen1_ti3",
     "text": "身体",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/shen1_ti3-身体.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/shen1_ti3-身体.mp3"
   },
   {
     "id": "shui3",
     "text": "水",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/shui3-水.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/shui3-水.mp3"
   },
   {
     "id": "shui3_guo3",
     "text": "水果",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/shui3_guo3-水果.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/shui3_guo3-水果.mp3"
   },
   {
     "id": "tai4",
     "text": "太",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/tai4-太.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/tai4-太.mp3"
   },
   {
     "id": "tai4_le5",
     "text": "太了",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/tai4_le5-太了.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/tai4_le5-太了.mp3"
   },
   {
     "id": "tai4_re4_le5",
     "text": "太热了",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/tai4_re4_le5-太热了.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/tai4_re4_le5-太热了.mp3"
   },
   {
     "id": "tian1_qi4",
     "text": "天气",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/tian1_qi4-天气.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/tian1_qi4-天气.mp3"
   },
   {
     "id": "tian1_qi4_tai4_leng3_le5",
     "text": "天气太冷了",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/tian1_qi4_tai4_leng3_le5-天气太冷了.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/tian1_qi4_tai4_leng3_le5-天气太冷了.mp3"
   },
   {
     "id": "tian1_qi4_tai4_re4_le5",
     "text": "天气太热了",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/tian1_qi4_tai4_re4_le5-天气太热了.mp3"
-  },
-  {
-    "id": "wang2_xiao3_jie3_jin1_tian1_hui4_lai2_ma5",
-    "text": "王小姐今天会来吗",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/wang2_xiao3_jie3_jin1_tian1_hui4_lai2_ma5-王小姐今天会来吗.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/tian1_qi4_tai4_re4_le5-天气太热了.mp3"
   },
   {
     "id": "wo3_shen1_ti3_bu4_tai4_hao3",
     "text": "我身体不太好",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/wo3_shen1_ti3_bu4_tai4_hao3-我身体不太好.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/wo3_shen1_ti3_bu4_tai4_hao3-我身体不太好.mp3"
   },
   {
     "id": "xia4",
     "text": "下",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/xia4-下.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/xia4-下.mp3"
   },
   {
     "id": "xia4_yu3",
     "text": "下雨",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/xia4_yu3-下雨.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/xia4_yu3-下雨.mp3"
   },
   {
     "id": "xiao3_jie3",
     "text": "小姐",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/xiao3_jie3-小姐.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/xiao3_jie3-小姐.mp3"
   },
   {
     "id": "xie1",
     "text": "些",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/xie1-些.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/xie1-些.mp3"
   },
   {
     "id": "xie4_xie4_ni3_yi1_sheng1",
     "text": "谢谢你医生",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/xie4_xie4_ni3_yi1_sheng1-谢谢你医生.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/xie4_xie4_ni3_yi1_sheng1-谢谢你医生.mp3"
   },
   {
     "id": "yu3",
     "text": "雨",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/yu3-雨.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/yu3-雨.mp3"
   },
   {
     "id": "zen3_me5_yang4",
     "text": "怎么样",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/zen3_me5_yang4-怎么样.mp3"
-  },
-  {
-    "id": "zuo2_tian1_bei3_jing1_de5_tian1_qi4_zen3_me5_yang4",
-    "text": "昨天北京的天气怎么样",
-    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk112/output/zuo2_tian1_bei3_jing1_de5_tian1_qi4_zen3_me5_yang4-昨天北京的天气怎么样.mp3"
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk112/zen3_me5_yang4-怎么样.mp3"
   }
 ]
