@@ -1,0 +1,117 @@
+[
+  {
+    "id": "bei1_zi5_zai4_na3",
+    "text": "杯子在哪",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/bei1_zi5_zai4_na3-杯子在哪.mp3"
+  },
+  {
+    "id": "bei1_zi5_zai4_zhuo1_zi5_li3",
+    "text": "杯子在桌子里",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/bei1_zi5_zai4_zhuo1_zi5_li3-杯子在桌子里.mp3"
+  },
+  {
+    "id": "ben3",
+    "text": "本",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/ben3-本.mp3"
+  },
+  {
+    "id": "dian4_nao3",
+    "text": "电脑",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/dian4_nao3-电脑.mp3"
+  },
+  {
+    "id": "he2",
+    "text": "和",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/he2-和.mp3"
+  },
+  {
+    "id": "hou4_mian4",
+    "text": "后面",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/hou4_mian4-后面.mp3"
+  },
+  {
+    "id": "hou4_mian4_na4_ge5_ren2_ne5",
+    "text": "后面那个人呢",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/hou4_mian4_na4_ge5_ren2_ne5-后面那个人呢.mp3"
+  },
+  {
+    "id": "li3",
+    "text": "里",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/li3-里.mp3"
+  },
+  {
+    "id": "mei2_you3",
+    "text": "没有",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/mei2_you3-没有.mp3"
+  },
+  {
+    "id": "neng2",
+    "text": "能",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/neng2-能.mp3"
+  },
+  {
+    "id": "qian2_mian4",
+    "text": "前面",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/qian2_mian4-前面.mp3"
+  },
+  {
+    "id": "qing3_zuo4",
+    "text": "请坐",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/qing3_zuo4-请坐.mp3"
+  },
+  {
+    "id": "shang4",
+    "text": "上",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/shang4-上.mp3"
+  },
+  {
+    "id": "ta1_jiao4_shen2_me5_ming2_zi4",
+    "text": "他叫什么名字",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/ta1_jiao4_shen2_me5_ming2_zi4-他叫什么名字.mp3"
+  },
+  {
+    "id": "ta1_jiao4_wang2_fang1",
+    "text": "他叫王芳",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/ta1_jiao4_wang2_fang1-他叫王芳.mp3"
+  },
+  {
+    "id": "ta1_jiao4_xie4_peng2",
+    "text": "他叫谢鹏",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/ta1_jiao4_xie4_peng2-他叫谢鹏.mp3"
+  },
+  {
+    "id": "wo3_neng2_zuo4_zhe4_er2_ma5",
+    "text": "我能坐这儿吗",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/wo3_neng2_zuo4_zhe4_er2_ma5-我能坐这儿吗.mp3"
+  },
+  {
+    "id": "zai4_shang1_dian4_gong1_zuo4",
+    "text": "在商店工作",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/zai4_shang1_dian4_gong1_zuo4-在商店工作.mp3"
+  },
+  {
+    "id": "zai4_yi1_yuan4_gong1_zuo4",
+    "text": "在医院工作",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/zai4_yi1_yuan4_gong1_zuo4-在医院工作.mp3"
+  },
+  {
+    "id": "zhe4_er2",
+    "text": "这儿",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/zhe4_er2-这儿.mp3"
+  },
+  {
+    "id": "zhe4_er2_you3_ren2_ma5",
+    "text": "这儿有人吗",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/zhe4_er2_you3_ren2_ma5-这儿有人吗.mp3"
+  },
+  {
+    "id": "zhuo1_zi5_shang4_you3_shen2_me5",
+    "text": "桌子上有什么",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/zhuo1_zi5_shang4_you3_shen2_me5-桌子上有什么.mp3"
+  },
+  {
+    "id": "zuo4",
+    "text": "做",
+    "audio": "J:/汉字音频剪辑及Json制作/audio/hsk110/11月25日/output/zuo4-做.mp3"
+  }
+]
