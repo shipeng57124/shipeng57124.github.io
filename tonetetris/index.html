@@ -10,12 +10,13 @@
       color: #f2f2f2;
       display: flex;
       justify-content: center;
-      padding: 16px;
+      padding: clamp(10px, 2vw, 18px);
       margin: 0;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
     #game-container {
-      width: 100%;
-      max-width: 560px;
+      width: min(100%, 860px);
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -31,10 +32,11 @@
     #top-actions {
       display: flex;
       gap: 6px;
+      flex-wrap: wrap;
     }
     h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: clamp(1.2rem, 2vw + 0.6rem, 1.6rem);
     }
     button {
       padding: 8px 12px;
@@ -53,6 +55,11 @@
       font-size: 12px;
       padding: 6px 10px;
       background: #3a3e49;
+    }
+    #header-restart-btn {
+      background: linear-gradient(135deg, #f35b5b, #ff9a62);
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(255, 113, 94, 0.35);
     }
     #welcome-panel {
       width: 100%;
@@ -89,6 +96,7 @@
       border-radius: 16px;
       padding: 10px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+      box-sizing: border-box;
     }
     #canvas-container {
       position: relative;
@@ -96,6 +104,8 @@
       overflow: hidden;
       background: #0b0c10;
       border: 1px solid #2c3039;
+      width: 100%;
+      max-height: calc(100vh - 240px);
     }
     #game-over-overlay {
       position: absolute;
@@ -146,8 +156,9 @@
     #tone-buttons {
       margin-top: 10px;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 6px;
+      width: 100%;
     }
     .tone-btn {
       display: flex;
@@ -162,12 +173,12 @@
       border: 1px solid rgba(255,255,255,0.15);
     }
     .tone-symbol {
-      font-size: 20px;
-      line-height: 1.2;
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.15;
       margin-bottom: 2px;
     }
     .tone-name {
-      font-size: 12px;
+      font-size: clamp(10px, 2vw, 12px);
       opacity: 0.85;
     }
     #info, #records {
@@ -210,17 +221,50 @@
     #main-ui {
       display: none;
     }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 10px 8px;
+      }
+      #top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      #game-container {
+        gap: 10px;
+      }
+      #welcome-panel, #game-area {
+        padding: 10px;
+      }
+      button {
+        padding: 7px 10px;
+      }
+      #hud {
+        font-size: 12px;
+        padding: 6px 8px;
+      }
+      #canvas-container {
+        max-height: calc(100vh - 210px);
+      }
+      .tone-btn {
+        min-height: 52px;
+        padding: 8px 4px;
+      }
+    }
   </style>
 </head>
 <body>
 <div id="game-container">
-  <div id="top-bar">
-    <h1 id="title">声调方块</h1>
-    <div id="top-actions">
-      <button id="setup-toggle">设置</button>
-      <button id="lang-btn">English</button>
+    <div id="top-bar">
+      <h1 id="title">声调方块</h1>
+      <div id="top-actions">
+        <button id="setup-toggle">设置</button>
+        <button id="header-restart-btn" disabled>重新开始</button>
+        <button id="pause-btn" disabled>暂停</button>
+        <button id="lang-btn">English</button>
+      </div>
     </div>
-  </div>
 
   <!-- 欢迎与设置界面 -->
   <div id="welcome-panel">
@@ -278,6 +322,5 @@
 </div>
 
 <script src="game-obf.js"></script>
-
 </body>
 </html>
