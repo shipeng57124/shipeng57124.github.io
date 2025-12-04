@@ -2,28 +2,40 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Tone Tetris</title>
   <style>
-    body {
+    /* 全局布局：锁定视口高度，禁止滚动 */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* 禁止出现滚动条 */
       font-family: sans-serif;
       background: #0f1115;
       color: #f2f2f2;
+    }
+
+    body {
       display: flex;
       justify-content: center;
-      padding: clamp(10px, 2vw, 18px);
-      margin: 0;
-      min-height: 100vh;
+      align-items: center;
       box-sizing: border-box;
+      padding: 10px;
     }
+
     #game-container {
-      width: min(100%, 860px);
+      width: 100%;
+      max-width: 600px; /* 限制最大宽度，适合桌面 */
+      height: 100%;     /* 占满垂直空间 */
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      align-items: center;
+      gap: 8px;
     }
+
+    /* 顶部栏 */
     #top-bar {
-      width: 100%;
+      flex-shrink: 0; /* 防止顶部被压缩 */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,293 +44,254 @@
     #top-actions {
       display: flex;
       gap: 6px;
-      flex-wrap: wrap;
     }
+
     h1 {
       margin: 0;
-      font-size: clamp(1.2rem, 2vw + 0.6rem, 1.6rem);
+      font-size: clamp(1rem, 4vh, 1.4rem); /* 字体随高度动态调整 */
+      white-space: nowrap;
     }
+
     button {
-      padding: 8px 12px;
-      margin: 0;
+      padding: 6px 10px;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 8px;
       border: none;
       background: #2c2f38;
       color: #fff;
-    }
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    #lang-btn {
       font-size: 12px;
-      padding: 6px 10px;
-      background: #3a3e49;
+      white-space: nowrap;
     }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
     #header-restart-btn {
       background: linear-gradient(135deg, #f35b5b, #ff9a62);
       font-weight: bold;
-      box-shadow: 0 4px 12px rgba(255, 113, 94, 0.35);
     }
+
+    /* 欢迎/设置面板 (覆盖层) */
     #welcome-panel {
-      width: 100%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 400px;
       background: #16191f;
       border: 1px solid #252a33;
       border-radius: 12px;
-      padding: 12px;
-      font-size: 14px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      z-index: 1000;
     }
     #setup-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin: 8px 0;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 15px 0;
     }
     select {
-      width: 100%;
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid #2c3039;
-      background: #0f1115;
-      color: #f2f2f2;
+      width: 100%; padding: 8px; border-radius: 6px;
+      border: 1px solid #2c3039; background: #0f1115; color: #fff;
     }
     #start-btn {
-      width: 100%;
+      width: 100%; padding: 10px;
       background: linear-gradient(135deg, #ff7a45, #ff4d4f);
-      font-weight: bold;
+      font-weight: bold; font-size: 16px;
     }
+
+    /* 核心游戏区域：Flex 1 自动占据剩余高度 */
     #game-area {
-      width: 100%;
+      flex: 1; /* 关键：自动伸缩 */
+      min-height: 0; /* 关键：允许 Flex 子元素收缩小于内容高度 */
       background: #16191f;
       border: 1px solid #252a33;
-      border-radius: 16px;
-      padding: 10px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-      box-sizing: border-box;
-    }
-    #canvas-container {
-      position: relative;
       border-radius: 12px;
-      overflow: hidden;
-      background: #0b0c10;
-      border: 1px solid #2c3039;
-      width: 100%;
-      max-height: calc(100vh - 240px);
-    }
-    #game-over-overlay {
-      position: absolute;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
+      /* padding: 8px;  <-- 移除这里的内边距，让内容贴边，对齐更准确 */
+      padding: 4px; /* 改用极小的内边距 */
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+      display: flex;
       flex-direction: column;
-      background: rgba(0, 0, 0, 0.65);
-      gap: 10px;
-      text-align: center;
-      padding: 16px;
-      backdrop-filter: blur(2px);
+      gap: 8px;
+      position: relative;
     }
-    #game-over-text {
-      font-size: 20px;
+
+    /* 画布容器：负责限制 Canvas 大小 */
+    #canvas-container {
+      flex: 1; /* 占据游戏区域的绝大部分 */
+      min-height: 0; /* 允许收缩 */
+      position: relative;
+      background: #0b0c10;
+      /* border: 1px solid #2c3039; <-- 移除画布容器的边框，避免视觉干扰对齐 */
+      border-radius: 8px 8px 0 0; /* 上方圆角，下方直角连接按钮 */
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Canvas 本身 */
+    canvas {
+      display: block;
+      /* box-shadow: 0 0 10px rgba(0,0,0,0.5); <-- 移除阴影，让边界更清晰 */
+    }
+
+    /* HUD (分数等) */
+    #hud {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between;
+      padding: 6px 10px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      font-size: 12px;
+      z-index: 10;
+    }
+
+    /* 底部文本提示 */
+    #status-area {
+      flex-shrink: 0;
+      text-align: center;
+      min-height: 20px;
+    }
+    #status-label, #current-text-label { font-size: 13px; color: #ccc; }
+
+    /* 底部按钮区域 - 关键修改 */
+    #tone-buttons {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0; /* [修改] 将间距改为 0，确保与上方画布列严格对齐 */
+      padding: 0 2px; /* 微调两侧内边距以匹配 Canvas 边缘 */
+    }
+    .tone-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 4px;
+      /* [修改] 减小圆角，因为它们现在紧挨在一起了 */
+      border-radius: 4px; 
+      color: #fff;
       font-weight: bold;
+      /* [修改] 稍微调亮边框，增加紧挨时的区分度 */
+      border: 1px solid rgba(255,255,255,0.25); 
+      height: 100%;
+      min-height: 44px;
+      /* 保证按钮不超出容器 */
+      box-sizing: border-box; 
+    }
+    /* 为了让按钮看起来像画布的延伸，去掉最外侧按钮的外边框圆角 */
+    .tone-btn:first-child { border-bottom-left-radius: 8px; }
+    .tone-btn:last-child { border-bottom-right-radius: 8px; }
+
+    .tone-symbol { font-size: 20px; line-height: 1; }
+    .tone-name { font-size: 10px; opacity: 0.8; }
+
+    /* 游戏结束遮罩 */
+    #game-over-overlay {
+      position: absolute; inset: 0;
+      display: none; align-items: center; justify-content: center; flex-direction: column;
+      background: rgba(0, 0, 0, 0.75);
+      gap: 15px; z-index: 20;
     }
     #restart-btn {
       background: linear-gradient(135deg, #7c8cff, #5465ff);
-      font-weight: bold;
-      min-width: 120px;
-    }
-    #game-canvas {
-      display: block;
-      width: 100%;
-      height: auto;
-      background: #07080c;
-    }
-    #hud {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 13px;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(6px);
-      padding: 8px 10px;
-      border-radius: 10px;
-    }
-    #status-label, #current-text-label {
-      margin-top: 4px;
-      font-size: 13px;
-    }
-    #tone-buttons {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 6px;
-      width: 100%;
-    }
-    .tone-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 4px;
-      border-radius: 10px;
-      color: #fff;
-      font-weight: bold;
-      min-height: 56px;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    .tone-symbol {
-      font-size: clamp(24px, 3vw, 32px);
-      line-height: 1.15;
-      margin-bottom: 2px;
-    }
-    .tone-name {
-      font-size: clamp(10px, 2vw, 12px);
-      opacity: 0.85;
-    }
-    #info, #records {
-      display: none;
-    }
-    /* 结算输入框 */
-    #result-modal {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: #181b22;
-      border: 1px solid #2e3440;
-      border-radius: 12px;
-      padding: 14px 18px;
-      z-index: 900;
-      display: none;
-      min-width: 260px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.7);
-    }
-    #result-modal h2 {
-      margin: 0 0 8px;
-      font-size: 16px;
-    }
-    #result-modal label {
-      font-size: 14px;
-    }
-    #result-modal input {
-      width: 100%;
-      padding: 6px 8px;
-      margin: 4px 0 8px;
-      border-radius: 8px;
-      border: 1px solid #2c3039;
-      background: #0f1115;
-      color: #eee;
-    }
-    #result-modal button {
-      margin-top: 4px;
-    }
-    #main-ui {
-      display: none;
+      font-weight: bold; padding: 10px 20px; font-size: 16px;
     }
 
-    @media (max-width: 720px) {
-      body {
-        padding: 10px 8px;
-      }
-      #top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      #game-container {
-        gap: 10px;
-      }
-      #welcome-panel, #game-area {
-        padding: 10px;
-      }
-      button {
-        padding: 7px 10px;
-      }
-      #hud {
-        font-size: 12px;
-        padding: 6px 8px;
-      }
-      #canvas-container {
-        max-height: calc(100vh - 210px);
-      }
-      .tone-btn {
-        min-height: 52px;
-        padding: 8px 4px;
-      }
+    /* 排行榜和信息 (隐藏) */
+    #info, #records { display: none; }
+
+    /* 结算输入框 */
+    #result-modal {
+      position: fixed; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      background: #181b22; border: 1px solid #2e3440;
+      border-radius: 12px; padding: 16px;
+      z-index: 2000; min-width: 260px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      display: none;
+    }
+    #result-modal input {
+      width: 100%; padding: 8px; margin: 8px 0;
+      background: #0f1115; border: 1px solid #333; color: #fff;
+      box-sizing: border-box;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 400px) {
+      .tone-symbol { font-size: 18px; }
+      #top-bar h1 { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
+
 <div id="game-container">
     <div id="top-bar">
       <h1 id="title">声调方块</h1>
       <div id="top-actions">
         <button id="setup-toggle">设置</button>
-        <button id="header-restart-btn" disabled>重新开始</button>
+        <button id="header-restart-btn" disabled>重开</button>
         <button id="pause-btn" disabled>暂停</button>
-        <button id="lang-btn">English</button>
+        <button id="lang-btn">En</button>
       </div>
     </div>
 
-  <!-- 欢迎与设置界面 -->
-  <div id="welcome-panel">
-    <p id="welcome-text">
-      点击下面的按钮进入游戏，然后先选择等级，再选择词库开始练习。
+    <div id="game-area">
+      <div id="canvas-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="hud">
+          <div id="score-label">分数: <span id="score">0</span></div>
+          <div id="combo-label">连击: <span id="combo">0</span></div>
+          <div id="timer">时间: <span id="time">0.0</span>s</div>
+        </div>
+
+        <div id="game-over-overlay">
+          <div id="game-over-text" style="font-size:24px; font-weight:bold;">游戏结束！</div>
+          <button id="restart-btn">再来一次</button>
+        </div>
+      </div>
+
+      <div id="status-area">
+          <div id="status-label"></div>
+          <div id="current-text-label"></div>
+      </div>
+
+      <div id="tone-buttons"></div>
+    </div>
+</div>
+
+<div id="welcome-panel">
+    <h2 style="margin-top:0; font-size:18px; text-align:center;">准备开始</h2>
+    <p id="welcome-text" style="font-size:13px; color:#aaa; margin-bottom:15px;">
+      请选择等级和词库开始练习。
     </p>
     <div id="setup-grid">
       <div>
-        <label id="level-label" for="level-select">选择等级：</label>
+        <label id="level-label" style="font-size:12px; display:block; margin-bottom:4px;">等级：</label>
         <select id="level-select"></select>
       </div>
       <div>
-        <label id="deck-label" for="deck-select">选择词库：</label>
+        <label id="deck-label" style="font-size:12px; display:block; margin-bottom:4px;">词库：</label>
         <select id="deck-select"></select>
       </div>
     </div>
     <button id="start-btn">开始游戏</button>
-  </div>
-
-  <!-- 游戏区域 -->
-  <div id="game-area">
-    <div id="canvas-container">
-      <div id="hud">
-        <div id="score-label">分数：<span id="score">0</span></div>
-        <div id="combo-label">连击：<span id="combo">0</span></div>
-        <div id="timer">用时：<span id="time">0.0</span>s</div>
-      </div>
-      <canvas id="game-canvas" width="420" height="700"></canvas>
-      <div id="game-over-overlay">
-        <div id="game-over-text">游戏结束！</div>
-        <button id="restart-btn">再来一次</button>
-      </div>
-    </div>
-    <div id="status-label"></div>
-    <div id="current-text-label"></div>
-    <div id="tone-buttons"></div>
-  </div>
-
-  <div id="info"></div>
-
-  <div id="records">
-    <h3 id="records-title">当前词库成绩</h3>
-    <ul id="records-list"></ul>
-  </div>
 </div>
 
-<!-- 结算输入名字 -->
+<div id="info"></div>
+<div id="records">
+  <h3 id="records-title">当前词库成绩</h3>
+  <ul id="records-list"></ul>
+</div>
+
 <div id="result-modal">
-  <h2 id="modal-title">本局成绩</h2>
-  <div id="modal-summary" style="font-size:13px;margin-bottom:6px;"></div>
-  <label id="name-label" for="player-name">请输入名字：</label>
-  <input id="player-name" type="text" maxlength="16" />
-  <button id="save-result-btn">保存成绩</button>
-  <button id="close-result-btn">关闭</button>
+  <h2 id="modal-title" style="margin:0 0 10px;">本局成绩</h2>
+  <div id="modal-summary" style="font-size:13px;margin-bottom:10px; color:#ccc; line-height:1.5;"></div>
+  <label id="name-label" for="player-name" style="font-size:12px;">请输入名字：</label>
+  <input id="player-name" type="text" maxlength="16" placeholder="Player" />
+  <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:5px;">
+      <button id="close-result-btn" style="background:#444;">关闭</button>
+      <button id="save-result-btn" style="background:#40a9ff;">保存</button>
+  </div>
 </div>
 
 <script src="game-obf.js"></script>
