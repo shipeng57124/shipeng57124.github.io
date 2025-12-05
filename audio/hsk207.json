@@ -35,14 +35,19 @@
     "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/guo4-过.mp3"
   },
   {
-    "id": "hao3_ba5",
-    "text": "好吧",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/hao3_ba5-好吧.mp3"
+    "id": "hai2_you3_yi2_ge4_duo1_xing1_qi1_ne5",
+    "text": "还有一个多星期呢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/hai2_you3_yi2_ge4_duo1_xing1_qi1_ne5-还有一个多星期呢.mp3"
   },
   {
-    "id": "ji1_chang3_lu4_5_ji1_chang3",
-    "text": "机场路机场",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/ji1_chang3_lu4_5_ji1_chang3-机场路机场.mp3"
+    "id": "hen3_yuan3",
+    "text": "很远",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/hen3_yuan3-很远.mp3"
+  },
+  {
+    "id": "ji1_chang3",
+    "text": "机场",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/ji1_chang3-机场.mp3"
   },
   {
     "id": "jiao4_shi4",
@@ -53,11 +58,6 @@
     "id": "jin1_tian1_guo4_ba5",
     "text": "今天过吧",
     "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/jin1_tian1_guo4_ba5-今天过吧.mp3"
-  },
-  {
-    "id": "jin1_tian1_li2_wo3_de5_sheng1_ri4_hai2_you3_yi2_ge4_duo1_xing1_qi1_ne5",
-    "text": "今天离我的生日还有一个多星期呢",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/jin1_tian1_li2_wo3_de5_sheng1_ri4_hai2_you3_yi2_ge4_duo1_xing1_qi1_ne5-今天离我的生日还有一个多星期呢.mp3"
   },
   {
     "id": "jin1_tian1_wan3_shang4",
@@ -80,14 +80,14 @@
     "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/li2-离.mp3"
   },
   {
-    "id": "li2_gong1_si1_yuan3",
-    "text": "离公司远",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/li2_gong1_si1_yuan3-离公司远.mp3"
+    "id": "li2_wo3_de5_sheng1_ri4",
+    "text": "离我的生日",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/li2_wo3_de5_sheng1_ri4-离我的生日.mp3"
   },
   {
-    "id": "li2_zhe4_er2_bu4_yuan3",
-    "text": "离这儿不远",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/li2_zhe4_er2_bu4_yuan3-离这儿不远.mp3"
+    "id": "li2_zhe4_bu4_yuan3",
+    "text": "离这不远",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/li2_zhe4_bu4_yuan3-离这不远.mp3"
   },
   {
     "id": "lu4",
@@ -120,9 +120,9 @@
     "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/ni3_hai2_you3_duo1_zhang3_shi2_jian1_neng2_dao4_zhe4_er2-你还有多长时间能到这儿.mp3"
   },
   {
-    "id": "ni3_jia1_li2_gong1_si1_yuan3_ma5_5_hen3_yuan3",
-    "text": "你家离公司远吗很远",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/ni3_jia1_li2_gong1_si1_yuan3_ma5_5_hen3_yuan3-你家离公司远吗很远.mp3"
+    "id": "ni3_jia1_li2_gong1_si1_yuan3_ma5",
+    "text": "你家离公司远吗",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/ni3_jia1_li2_gong1_si1_yuan3_ma5-你家离公司远吗.mp3"
   },
   {
     "id": "ni3_xian4_zai4_zai4_na3_er2_ne5",
@@ -175,9 +175,14 @@
     "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/xiao3_shi2-小时.mp3"
   },
   {
-    "id": "yi3_jing1_5_dian3_duo1_le5",
-    "text": "已经点多了",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/yi3_jing1_5_dian3_duo1_le5-已经点多了.mp3"
+    "id": "yao4_yi2_ge4_duo1_xiao3_shi2_ne5",
+    "text": "要一个多小时呢",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/yao4_yi2_ge4_duo1_xiao3_shi2_ne5-要一个多小时呢.mp3"
+  },
+  {
+    "id": "yi3_jing1_jiu3_dian3_duo1_le5",
+    "text": "已经九点多了",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/yi3_jing1_jiu3_dian3_duo1_le5-已经九点多了.mp3"
   },
   {
     "id": "you3_yi2_ge4_zhong1_guo2_fan4_guan3",
@@ -205,14 +210,13 @@
     "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/zou3_ji3_fen1_zhong1_jiu4_dao4_le5-走几分钟就到了.mp3"
   },
   {
+    "id": "zuo4_gong1_gong4_qi4_che1",
+    "text": "坐公共汽车",
+    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/zuo4_gong1_gong4_qi4_che1-坐公共汽车.mp3"
+  },
+  {
     "id": "zuo4_gong1_gong4_qi4_che1_tai4_man4_le5",
     "text": "坐公共汽车太慢了",
     "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/zuo4_gong1_gong4_qi4_che1_tai4_man4_le5-坐公共汽车太慢了.mp3"
-  },
-  {
-    "id": "zuo4_gong1_gong4_qi4_che1_yao4_yi2_ge4_duo1_xiao3_shi2_ne5",
-    "text": "坐公共汽车要一个多小时呢",
-    "audio": "J:/shooting game online/shooting-words--codex-adjust-shooting-interface-layout-and-add-timer-kpkdcw/audio/hsk207/zuo4_gong1_gong4_qi4_che1_yao4_yi2_ge4_duo1_xiao3_shi2_ne5-坐公共汽车要一个多小时呢.mp3"
   }
-
 ]
