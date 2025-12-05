@@ -1,0 +1,212 @@
+[
+  {
+    "id": "ba4_ba5",
+    "text": "爸爸",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ba4_ba5-爸爸.mp3"
+  },
+  {
+    "id": "bu4_zai4_jia1",
+    "text": "不在家",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/bu4_zai4_jia1-不在家.mp3"
+  },
+  {
+    "id": "cha2",
+    "text": "茶",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/cha2-茶.mp3"
+  },
+  {
+    "id": "chi1",
+    "text": "吃",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/chi1-吃.mp3"
+  },
+  {
+    "id": "duo1_shao3",
+    "text": "多少",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/duo1_shao3-多少.mp3"
+  },
+  {
+    "id": "er2_zi5",
+    "text": "儿子",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/er2_zi5-儿子.mp3"
+  },
+  {
+    "id": "er4_shi2_ba1_kuai4",
+    "text": "二十八块",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/er4_shi2_ba1_kuai4-二十八块.mp3"
+  },
+  {
+    "id": "gong1_zuo4",
+    "text": "工作",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/gong1_zuo4-工作.mp3"
+  },
+  {
+    "id": "gou3",
+    "text": "狗",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/gou3-狗.mp3"
+  },
+  {
+    "id": "he1",
+    "text": "喝",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/he1-喝.mp3"
+  },
+  {
+    "id": "kuai4",
+    "text": "块",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/kuai4-块.mp3"
+  },
+  {
+    "id": "mao1",
+    "text": "猫",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/mao1-猫.mp3"
+  },
+  {
+    "id": "mi3_fan4",
+    "text": "米饭",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/mi3_fan4-米饭.mp3"
+  },
+  {
+    "id": "na3_er2",
+    "text": "哪儿",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/na3_er2-哪儿.mp3"
+  },
+  {
+    "id": "na4",
+    "text": "那",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/na4-那.mp3"
+  },
+  {
+    "id": "na4_er2",
+    "text": "那儿",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/na4_er2-那儿.mp3"
+  },
+  {
+    "id": "ni3_ba4_ba5_zai4_jia1_ma5",
+    "text": "你爸爸在家吗",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ni3_ba4_ba5_zai4_jia1_ma5-你爸爸在家吗.mp3"
+  },
+  {
+    "id": "ni3_xiang3_chi1_shen2_me5",
+    "text": "你想吃什么",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ni3_xiang3_chi1_shen2_me5-你想吃什么.mp3"
+  },
+  {
+    "id": "ni3_xiang3_he1_shen2_me5",
+    "text": "你想喝什么",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ni3_xiang3_he1_shen2_me5-你想喝什么.mp3"
+  },
+  {
+    "id": "ni3_xiang3_mai3_shen2_me5",
+    "text": "你想买什么",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ni3_xiang3_mai3_shen2_me5-你想买什么.mp3"
+  },
+  {
+    "id": "ni3_zai4_na3_er2_gong1_zuo4",
+    "text": "你在哪儿工作",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ni3_zai4_na3_er2_gong1_zuo4-你在哪儿工作.mp3"
+  },
+  {
+    "id": "qian2",
+    "text": "钱",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/qian2-钱.mp3"
+  },
+  {
+    "id": "ta1_shi4_yi1_sheng1",
+    "text": "他是医生",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ta1_shi4_yi1_sheng1-他是医生.mp3"
+  },
+  {
+    "id": "ta1_zai4_na3_ne5",
+    "text": "他在哪呢",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ta1_zai4_na3_ne5-他在哪呢.mp3"
+  },
+  {
+    "id": "ta1_zai4_yi1_yuan4",
+    "text": "他在医院",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/ta1_zai4_yi1_yuan4-他在医院.mp3"
+  },
+  {
+    "id": "wo3_xiang3_chi1_mi3_fan4",
+    "text": "我想吃米饭",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/wo3_xiang3_chi1_mi3_fan4-我想吃米饭.mp3"
+  },
+  {
+    "id": "wo3_xiang3_he1_cha2",
+    "text": "我想喝茶",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/wo3_xiang3_he1_cha2-我想喝茶.mp3"
+  },
+  {
+    "id": "wo3_zai4_xue2_xiao4_gong1_zuo4",
+    "text": "我在学校工作",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/wo3_zai4_xue2_xiao4_gong1_zuo4-我在学校工作.mp3"
+  },
+  {
+    "id": "xia4",
+    "text": "下",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xia4-下.mp3"
+  },
+  {
+    "id": "xia4_mian4",
+    "text": "下面",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xia4_mian4-下面.mp3"
+  },
+  {
+    "id": "xia4_wu3_ni3_xiang3_zuo4_shen2_me5",
+    "text": "下午你想做什么",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xia4_wu3_ni3_xiang3_zuo4_shen2_me5-下午你想做什么.mp3"
+  },
+  {
+    "id": "xiang3",
+    "text": "想",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xiang3-想.mp3"
+  },
+  {
+    "id": "xiao3",
+    "text": "小",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xiao3-小.mp3"
+  },
+  {
+    "id": "xiao3_gou3_zai4_na3_er2",
+    "text": "小狗在哪儿",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xiao3_gou3_zai4_na3_er2-小狗在哪儿.mp3"
+  },
+  {
+    "id": "xiao3_mao1_zai4_na3_er2",
+    "text": "小猫在哪儿",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xiao3_mao1_zai4_na3_er2-小猫在哪儿.mp3"
+  },
+  {
+    "id": "xiao3_mao1_zai4_na4_er2",
+    "text": "小猫在那儿",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/xiao3_mao1_zai4_na4_er2-小猫在那儿.mp3"
+  },
+  {
+    "id": "yi1_sheng1",
+    "text": "医生",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/yi1_sheng1-医生.mp3"
+  },
+  {
+    "id": "yi1_yuan4",
+    "text": "医院",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/yi1_yuan4-医院.mp3"
+  },
+  {
+    "id": "yi3_zi5",
+    "text": "椅子",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/yi3_zi5-椅子.mp3"
+  },
+  {
+    "id": "zai4",
+    "text": "在",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/zai4-在.mp3"
+  },
+  {
+    "id": "zai4_na3_er2_gong1_zuo4",
+    "text": "在哪儿工作",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/zai4_na3_er2_gong1_zuo4-在哪儿工作.mp3"
+  },
+  {
+    "id": "zhe4",
+    "text": "这",
+    "audio": "J:/声调俄罗斯方块chatgpt/audio/hsk10809/zhe4-这.mp3"
+  }
+]
